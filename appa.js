@@ -58,31 +58,11 @@ function helpCommand(args, receivedMessage) {
     }
 }
 
-/* 
-let token = ""
-
-//Accepting token from file and staring the bot
-import { default as lineReader } from 'line-reader'
-async function readToken() {
-    lineReader.eachLine('.\\appaToken.txt', (line, last) => {
-        token = line.substr(0)
-        start(token)
-    }) 
-}
-
 function contains(str, word) {
     str = str.toLowerCase()
     word = word.toLowerCase()
 
     return(str.includes(word))
 }
-
-//Starts the bot
-function start(tok) {
-    client.login(tok)
-}
-
-readToken() 
-*/
 
 client.login(process.env.token)
