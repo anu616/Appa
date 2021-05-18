@@ -1,0 +1,28 @@
+{
+  "name": "appa",
+  "version": "1.0.0",
+  "description": "Bot for ATLA Server",
+  "main": "appa.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anu616/Appa.git"
+  },
+  "keywords": [
+    "ATLA",
+    "appa"
+  ],
+  "author": "Anusha Tiwari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anu616/Appa/issues"
+  },
+  "homepage": "https://github.com/anu616/Appa#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "line-reader": "^0.4.0"
+  }
+}
