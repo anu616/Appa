@@ -1,15 +1,4 @@
 
-let token = ""
-
-//Accepting token from file and staring the bot
-import { default as lineReader } from 'line-reader'
-async function readToken() {
-    lineReader.eachLine('.\\appaToken.txt', (line, last) => {
-        token = line.substr(0)
-        start(token)
-    }) 
-}
-
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
@@ -69,6 +58,18 @@ function helpCommand(args, receivedMessage) {
     }
 }
 
+/* 
+let token = ""
+
+//Accepting token from file and staring the bot
+import { default as lineReader } from 'line-reader'
+async function readToken() {
+    lineReader.eachLine('.\\appaToken.txt', (line, last) => {
+        token = line.substr(0)
+        start(token)
+    }) 
+}
+
 function contains(str, word) {
     str = str.toLowerCase()
     word = word.toLowerCase()
@@ -81,4 +82,7 @@ function start(tok) {
     client.login(tok)
 }
 
-readToken()
+readToken() 
+*/
+
+client.login(process.env.token)
