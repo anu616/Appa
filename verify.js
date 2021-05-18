@@ -83,7 +83,7 @@ function contains(str, word) {
 
 function verifiedMessage(userID, nation, receivedMessage) {
     let gates = "725687980874006548" 
-    let bottest = "760099744499367937"
+    //let bottest = "760099744499367937"
     let map = "717761736052310097"
     let roles = "717761736052310097"
     let basingse = "717761736052310097"
@@ -165,7 +165,7 @@ function verifiedMessage(userID, nation, receivedMessage) {
         
     }
 
-    let channelTo = receivedMessage.guild.channels.cache.get(bottest)
+    let channelTo = receivedMessage.guild.channels.cache.get(gates)
     
     channelTo.send(welcomePing)
     embedMsg(nation, receivedMessage, verificationMsg, channelTo)
