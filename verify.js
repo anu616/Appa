@@ -106,7 +106,7 @@ function verifiedMessage(userID, nation, receivedMessage) {
         + nationID +  "> " + "Fire Nation" + "<:" + nationName +":" + nationID +  ">"
 
         verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is where you can find what each channel is for! \n" +
+        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is the channel directory! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + fire + "> is your nation chat! \n" +
