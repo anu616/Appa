@@ -1,20 +1,27 @@
+import { MessageEmbed } from 'discord.js'
 
 function verify(args, receivedMessage, prefix) {
-    if(args.length < 3) {
-        receivedMessage.channel.send("Please run the command in the following format: \n"
-        + "Enter the user, their age and nation in the following format: \n"
-        + "`" + prefix + "verify [@User] [Age] [Nation]`")
-    }
-    else {
-        let userID = args[0].substr(3, 18)
-        let age = args[1]
-        let nation = args[2]
-        
-        addRoles(userID, receivedMessage)
-        addNation(userID, nation, receivedMessage)
-        addAge(userID, age, receivedMessage)   
+    let verification = "839264531279904838"
+    if(receivedMessage.member.roles.cache.has(verification)) {
+        if(args.length < 3) {
+            receivedMessage.channel.send("Please run the command in the following format: \n"
+            + "Enter the user, their age and nation in the following format: \n"
+            + "`" + prefix + "verify [@User] [Age] [Nation]`")
+        } else {
+            let userID = args[0].substr(3, 18)
+            let age = args[1]
+            let nation = args[2]
+            
+            addRoles(userID, receivedMessage)
+            addNation(userID, nation, receivedMessage)
+            addAge(userID, age, receivedMessage)   
+    
+            verifiedMessage(userID, nation, receivedMessage)
 
-        verifiedMessage(userID, nation, receivedMessage)
+            receivedMessage.delete()
+        }
+    } else {
+        receivedMessage.channel.send("Sorry, you do not have the permission to use this command")
     }
 }
 
@@ -76,15 +83,16 @@ function contains(str, word) {
 
 function verifiedMessage(userID, nation, receivedMessage) {
     let gates = "725687980874006548" 
-    //let bottest = "760099744499367937"
+    let bottest = "760099744499367937"
     let map = "717761736052310097"
     let roles = "717761736052310097"
     let basingse = "717761736052310097"
     let camp = "717761736052310097"
-    let joodee = "730147351133683853"
+    let jooDee = "730147351133683853"
     let cabName = "CabbageBlush"
     let cabID = "745973485158924370"
 
+    let welcomePing = ""
     let verificationMsg = ""
 
     if(contains("Fire Nation", nation)) {
@@ -94,9 +102,10 @@ function verifiedMessage(userID, nation, receivedMessage) {
         let elementName = "ElementFire"
         let elementID = "746048754221711460"
 
-        verificationMsg = "Hey <@&" + joodee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Fire Nation" + "<:" + nationName +":" + nationID +  "> \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
+        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
+        + nationID +  "> " + "Fire Nation" + "<:" + nationName +":" + nationID +  ">"
+
+        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is where you can find what each channel is for! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
@@ -110,9 +119,10 @@ function verifiedMessage(userID, nation, receivedMessage) {
         let elementName = "ElementWater"
         let elementID = "746048690531074129"
 
-        verificationMsg = "Hey <@&" + joodee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Water Tribe" + "<:" + nationName +":" + nationID +  "> \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
+        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
+        + nationID +  "> " + "Water Tribe" + "<:" + nationName +":" + nationID +  ">"
+
+        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is where you can find what each channel is for! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
@@ -126,9 +136,10 @@ function verifiedMessage(userID, nation, receivedMessage) {
         let elementName = "ElementEarth"
         let elementID = "746048737247232089"
 
-        verificationMsg = "Hey <@&" + joodee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Earth Kingdom" + "<:" + nationName +":" + nationID +  "> \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
+        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
+        + nationID +  "> " + "Earth Kingdom" + "<:" + nationName +":" + nationID +  ">"
+        
+        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is where you can find what each channel is for! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
@@ -142,10 +153,10 @@ function verifiedMessage(userID, nation, receivedMessage) {
         let elementName = "ElementAir"
         let elementID = "746048720302505984"
 
-        
-        verificationMsg = "Hey <@&" + joodee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Air Nomads" + "<:" + nationName +":" + nationID +  "> \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
+        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
+        + nationID +  "> " + "Air Nomads" + "<:" + nationName +":" + nationID +  ">"
+
+        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is where you can find what each channel is for! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
         "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
@@ -154,9 +165,38 @@ function verifiedMessage(userID, nation, receivedMessage) {
         
     }
 
-    let channelTo = receivedMessage.guild.channels.cache.get(gates)
+    let channelTo = receivedMessage.guild.channels.cache.get(bottest)
     
-    channelTo.send(verificationMsg)
-
+    channelTo.send(welcomePing)
+    embedMsg(nation, receivedMessage, verificationMsg, channelTo)
 }
+
+function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
+    let col = ""
+    let thumb = ""
+    if(contains("Fire Nation", nation)) {
+        col = receivedMessage.guild.roles.cache.get("725052068007641201").hexColor
+        thumb = "https://cdn.discordapp.com/emojis/715448678659391568.png?v=1"
+
+    } else if(contains("Water Tribe", nation)) {
+        col = receivedMessage.guild.roles.cache.get("725052064362922096").hexColor
+        thumb = "https://cdn.discordapp.com/emojis/715448596019019846.png?v=1"
+
+    } else if(contains("Earth Kingdom", nation)) {
+        col = receivedMessage.guild.roles.cache.get("725052066308816937").hexColor
+        thumb = "https://cdn.discordapp.com/emojis/715448636850307102.png?v=1"
+
+    } else if(contains("Air Nomads", nation)) {
+       col = receivedMessage.guild.roles.cache.get("725052062546788373").hexColor
+       thumb = "https://cdn.discordapp.com/emojis/715447547447083028.png?v=1"
+    }
+
+    const embed = new MessageEmbed()
+        .setTitle("Here are some channels you should check out!")
+        .setColor(col)
+        .setDescription(verifiedMessage)
+        .setThumbnail(thumb)
+    channelTo.send(embed)
+}
+
 export { verify as default }

@@ -65,4 +65,5 @@ function contains(str, word) {
     return(str.includes(word))
 }
 
-client.login(process.env.token)
+//client.login(process.env.token)
+client.login("ODMxOTU1MDU3NTU3MzczMDIw.YHcwhg.Q49I3JoLILQ3kO_0HsNwrIC9FRw")
