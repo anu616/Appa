@@ -2,8 +2,21 @@
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
-let prefix = 'a!'
+let prefix = ['a!', 'appa']
 let pLen = prefix.length
+
+function checkPrefix(receivedMessage) {
+    receivedMessage.content =  receivedMessage.content.toLowerCase()
+    for (let i = 0; i < pLen; i++) {
+        let len = prefix[i].length
+        if(receivedMessage.content.substr(0, len) == prefix[i]) {
+            receivedMessage.content = receivedMessage.content.substr(len)
+            console.log('in prefix: ' + receivedMessage.content)
+            return true
+        }
+    }
+    return false
+}
 
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
@@ -14,9 +27,13 @@ client.on('ready', () => {
             return
         }
             
-        if (receivedMessage.content.startsWith(prefix)) {
+        if (checkPrefix(receivedMessage)) {
+            console.log('passed prefix: ' + receivedMessage.content)
             processCommand(receivedMessage)
         }
+    })
+    client.on('voiceStateUpdate', (oldState, newState) => {
+        vcRole(oldState, newState)
     })
 })
 
@@ -26,8 +43,7 @@ import yipYip from './yipyip.js'
 import dice from './dice.js'
 
 function processCommand(receivedMessage) {
-    let commandFull = receivedMessage.content.substr(pLen).toLowerCase() //command is what the user inputs after prefix
-    let commandSplit = commandFull.split(" ")               //splitting the command to separate command and args
+    let commandSplit = receivedMessage.content.split(" ")             //splitting the command to separate command and args
     let command = commandSplit[0]                           //the command
     let args = commandSplit.slice(1)                        //args
 
