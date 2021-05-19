@@ -2,6 +2,12 @@
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
+import verify from './verify.js'
+import yipYip from './yipyip.js'
+import dice from './dice.js'
+import vcRole from './vcrole.js'
+import logMsg from './rawShaw.js'
+
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
 
@@ -26,6 +32,10 @@ client.on('ready', () => {
             return
         }
             
+        if(receivedMessage.channel.id == "796243350025404436") {
+            logMsg(receivedMessage, "796253582361886750")
+        }
+
         if (checkPrefix(receivedMessage)) {
             processCommand(receivedMessage)
         }
@@ -34,11 +44,6 @@ client.on('ready', () => {
         vcRole(oldState, newState)
     })
 })
-
-//importing code modules
-import verify from './verify.js'
-import yipYip from './yipyip.js'
-import dice from './dice.js'
 
 function processCommand(receivedMessage) {
     let commandSplit = receivedMessage.content.split(" ")   //splitting the command to separate command and args
