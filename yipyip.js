@@ -1,16 +1,20 @@
 import { MessageEmbed } from 'discord.js'
 
 function yipYip(receivedMessage) {
+    let laws = "715480633463275597"
     let map = "715843510875717634"
     let roles = "750071527780778094"
-    let faq = "804529091558375434"
-    let abt = "750470702737391637" 
+    let baSingSe = "723016761712050186"
+    let aangFanClub = "738743723692654642"
+    let paiSho = "725059189340242010" 
     let emoji = "<a:_Bisons:746082006248456283>"
 
-    let msg = emoji + " Go to <#" + map + "> for the Channel Directory \n" + 
+    let msg = emoji + " Go to <#" + laws + "> for the Server Laws! \n" +
+    emoji + " Go to <#" + map + "> for the Channel Directory \n" + 
     emoji + " Go to <#" + roles + "> to choose Roles! \n" +
-    emoji + " Go to <#" + faq + "> to konw about the Server! \n" +
-    emoji + " Go to <#" + abt + "> to know about the Staff!"
+    emoji + " Go to <#" + baSingSe + "> for the Main Text Channel! \n" +
+    emoji + " Go to <#" + aangFanClub + "> for the Avatar Text Channel! \n" +
+    emoji + " Go to <#" + paiSho + "> for the Event Text Channel"
 
     embedMsg(msg, receivedMessage)
 }
