@@ -1,3 +1,5 @@
+import { MessageEmbed } from 'discord.js'
+
 function dice(args, receivedMessage) {
     if(args.length == 2 )
     {
@@ -19,7 +21,9 @@ function dice(args, receivedMessage) {
             i++;
         }
     }
-    receivedMessage.channel.send(rolls)
+    
+    msgEmbed(rolls, receivedMessage)
+
     } else {
         receivedMessage.channel.send("Please use the command in the following format: \n" +
         "a!dice `<number of die>` `<number of sides on each dice>`")
@@ -27,4 +31,13 @@ function dice(args, receivedMessage) {
     
 }
 
+function msgEmbed(rolls, receivedMessage) {
+    const embed = new MessageEmbed()
+        .setTitle("Your Rolls:")
+        .setDescription(rolls)
+        .setThumbnail('https://cdn.discordapp.com/emojis/823969977341444146.gif?v=1')
+        .setColor(0x000000)
+
+    receivedMessage.channel.send(embed)
+}
 export { dice as default }
