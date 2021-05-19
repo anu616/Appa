@@ -7,6 +7,7 @@ function yipYip(receivedMessage) {
     let baSingSe = "723016761712050186"
     let aangFanClub = "738743723692654642"
     let paiSho = "725059189340242010" 
+    let bot = "844393052244017153"
     let emoji = "<a:_Bisons:746082006248456283>"
 
     let msg = emoji + " Go to <#" + laws + "> for the Server Laws! \n" +
@@ -14,7 +15,8 @@ function yipYip(receivedMessage) {
     emoji + " Go to <#" + roles + "> to choose Roles! \n" +
     emoji + " Go to <#" + baSingSe + "> for the Main Text Channel! \n" +
     emoji + " Go to <#" + aangFanClub + "> for the Avatar Text Channel! \n" +
-    emoji + " Go to <#" + paiSho + "> for the Event Text Channel! "
+    emoji + " Go to <#" + paiSho + "> for the Event Text Channel! \n" +
+    emoji + " Go to <#" + bot + "> to play with our Bots! "
 
     embedMsg(msg, receivedMessage)
 }
