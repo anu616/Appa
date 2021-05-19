@@ -32,8 +32,8 @@ client.on('ready', () => {
             return
         }
             
-        if(receivedMessage.channel.id == "796243350025404436") {
-            logMsg(receivedMessage, "796253582361886750")
+        if(receivedMessage.channel.id == "796243350025404436") {        //in crystal
+            logMsg(receivedMessage, "796253582361886750")               //to cata logs
         }
 
         if (checkPrefix(receivedMessage)) {
