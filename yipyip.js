@@ -10,7 +10,7 @@ function yipYip(receivedMessage) {
     let msg = emoji + " Go to <#" + map + "> for the Channel Directory \n" + 
     emoji + " Go to <#" + roles + "> to choose Roles! \n" +
     emoji + " Go to <#" + faq + "> to konw about the Server! \n" +
-    emoji + " Go to <#" + abt + "> to know about the Staff! \n" +
+    emoji + " Go to <#" + abt + "> to know about the Staff!"
 
     embedMsg(msg, receivedMessage)
 }
