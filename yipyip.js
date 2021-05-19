@@ -12,10 +12,10 @@ function yipYip(receivedMessage) {
     emoji + " Go to <#" + faq + "> to konw about the Server! \n" +
     emoji + " Go to <#" + abt + "> to know about the Staff! \n" +
 
-    embedMsg(receivedMessage, msg)
+    embedMsg(msg, receivedMessage)
 }
 
-function embedMsg(receivedMessage, msg) {
+function embedMsg(msg, receivedMessage) {
     const embed = new MessageEmbed()
         .setTitle("Where would you like to fly to? ")
         .setColor(0xD9B595)
