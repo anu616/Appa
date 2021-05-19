@@ -11,7 +11,6 @@ function checkPrefix(receivedMessage) {
         let len = prefix[i].length
         if(receivedMessage.content.substr(0, len) == prefix[i]) {
             receivedMessage.content = receivedMessage.content.substr(len)
-            console.log('in prefix: ' + receivedMessage.content)
             return true
         }
     }
@@ -28,7 +27,6 @@ client.on('ready', () => {
         }
             
         if (checkPrefix(receivedMessage)) {
-            console.log('passed prefix: ' + receivedMessage.content)
             processCommand(receivedMessage)
         }
     })
