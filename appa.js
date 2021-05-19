@@ -23,6 +23,7 @@ client.on('ready', () => {
 //importing code modules
 import verify from './verify.js'
 import yipYip from './yipyip.js'
+import dice from './dice.js'
 
 function processCommand(receivedMessage) {
     let commandFull = receivedMessage.content.substr(pLen).toLowerCase() //command is what the user inputs after prefix
@@ -39,6 +40,8 @@ function processCommand(receivedMessage) {
         verify(args, receivedMessage, prefix)
     } else if (contains("Yip-Yip", command)) {
         yipYip(receivedMessage)
+    } else if (contains("Dice", command)) {
+        dice(args, receivedMessage)
     } 
 }
 
@@ -51,6 +54,8 @@ function helpCommand(args, receivedMessage) {
             verify(args, receivedMessage, prefix)
         } else if (contains("Yip-Yip", argCommand)) {
             receivedMessage.channel.send("Takes you to some of the important channels of the server")
+        } else if (contains("Dice", argCommand)) {
+            dice(args, receivedMessage)
         } else {
             receivedMessage.channel.send("That is not a valid command")
         }
