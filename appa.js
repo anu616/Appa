@@ -46,7 +46,7 @@ function processCommand(receivedMessage) {
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip-Yip']
+    let commandList = ['Help', 'Verify', 'Yip-Yip', 'Dice']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
@@ -64,6 +64,7 @@ function helpCommand(args, receivedMessage) {
         commandList.forEach(element => {
             receivedMessage.channel.send(element)            
         });
+        receivedMessage.channel.send("Type a!help `<command>` to know more about a specific command")
     }
 }
 
