@@ -2,7 +2,7 @@
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
-let prefix = ['a!', 'appa']
+let prefix = ['a!', 'appa ']
 let pLen = prefix.length
 
 function checkPrefix(receivedMessage) {
@@ -43,7 +43,7 @@ import yipYip from './yipyip.js'
 import dice from './dice.js'
 
 function processCommand(receivedMessage) {
-    let commandSplit = receivedMessage.content.split(" ")             //splitting the command to separate command and args
+    let commandSplit = receivedMessage.content.split(" ")   //splitting the command to separate command and args
     let command = commandSplit[0]                           //the command
     let args = commandSplit.slice(1)                        //args
 
