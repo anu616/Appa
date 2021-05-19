@@ -7,7 +7,7 @@ function yipYip(receivedMessage) {
     let baSingSe = "723016761712050186"
     let aangFanClub = "738743723692654642"
     let paiSho = "725059189340242010" 
-    let bot = "844393052244017153"
+    let bot = "794047813834899496"
     let emoji = "<a:_Bisons:746082006248456283>"
 
     let msg = emoji + " Go to <#" + laws + "> for the Server Laws! \n" +
