@@ -10,11 +10,11 @@ function yipYip(receivedMessage) {
     let emoji = "<a:_Bisons:746082006248456283>"
 
     let msg = emoji + " Go to <#" + laws + "> for the Server Laws! \n" +
-    emoji + " Go to <#" + map + "> for the Channel Directory \n" + 
+    emoji + " Go to <#" + map + "> for the Channel Directory! \n" + 
     emoji + " Go to <#" + roles + "> to choose Roles! \n" +
     emoji + " Go to <#" + baSingSe + "> for the Main Text Channel! \n" +
     emoji + " Go to <#" + aangFanClub + "> for the Avatar Text Channel! \n" +
-    emoji + " Go to <#" + paiSho + "> for the Event Text Channel"
+    emoji + " Go to <#" + paiSho + "> for the Event Text Channel! "
 
     embedMsg(msg, receivedMessage)
 }
