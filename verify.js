@@ -92,78 +92,44 @@ function verifiedMessage(userID, nation, receivedMessage) {
     let cabName = "CabbageBlush"
     let cabID = "745973485158924370"
 
-    let welcomePing = ""
-    let verificationMsg = ""
+    let nationChat = ""
+    let nationEmoji = ""
+    let elementEmoji = ""
 
     if(contains("Fire Nation", nation)) {
-        let fire = "725073009295097917"
-        let nationName = "The_FireNation"
-        let nationID = "715448678659391568"
-        let elementName = "ElementFire"
-        let elementID = "746048754221711460"
-
-        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Fire Nation" + "<:" + nationName +":" + nationID +  ">"
-
-        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is the channel directory! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + fire + "> is your nation chat! \n" +
-        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
+        nation = " Fire Nation "
+        nationChat = "725073009295097917"
+        nationEmoji = "<:The_FireNation:715448678659391568>"
+        elementEmoji = "<:ElementFire:746048754221711460>"
 
     } else if(contains("Water Tribe", nation)) {
-        let water = "725072827530739732"
-        let nationName = "The_WaterTribe"
-        let nationID = "715448596019019846"
-        let elementName = "ElementWater"
-        let elementID = "746048690531074129"
-
-        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Water Tribe" + "<:" + nationName +":" + nationID +  ">"
-
-        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is the channel directory! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + water + "> is your nation chat! \n" +
-        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
+        nation = " Water Tribe "
+        nationChat = "725072827530739732"
+        nationEmoji = "<:The_WaterTribe:715448596019019846>"
+        elementEmoji = "<:ElementWater:746048690531074129>"
         
     } else if(contains("Earth Kingdom", nation)) {
-        let earth = "725072929242742924"
-        let nationName = "The_EarthKingdom"
-        let nationID = "715448636850307102"
-        let elementName = "ElementEarth"
-        let elementID = "746048737247232089"
-
-        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Earth Kingdom" + "<:" + nationName +":" + nationID +  ">"
-        
-        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is the channel directory! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + earth + "> is your nation chat! \n" +
-        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
-        
+        nation = " Earth Kingdom "
+        nationChat = "725072929242742924"
+        nationEmoji = "<:The_EarthKingdom:715448636850307102>"
+        elementEmoji = "<:ElementEarth:746048737247232089>"
+    
     } else if(contains("Air Nomads", nation)) {
-        let air = "725072709465276416"
-        let nationName = "The_AirNomads"
-        let nationID = "715447547447083028"
-        let elementName = "ElementAir"
-        let elementID = "746048720302505984"
-
-        welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " + "<:" + nationName +":" 
-        + nationID +  "> " + "Air Nomads" + "<:" + nationName +":" + nationID +  ">"
-
-        verificationMsg = "<:" + elementName +":" + elementID +  "> " + "<#" + roles + "> is where you can grab some roles! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + map + "> is the channel directory! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + basingse + "> is our general chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + camp + "> is our new member chat! \n" +
-        "<:" + elementName +":" + elementID +  "> " + "<#" + air + "> is your nation chat! \n" +
-        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
-        
+        nation = " Air Nomads "
+        nationChat = "725072709465276416"
+        nationEmoji = "<:The_AirNomads:715447547447083028>"
+        elementEmoji = "<:ElementAir:746048720302505984>"        
     }
+
+    let welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " 
+    + nationEmoji + nation + nationEmoji
+
+    let verificationMsg = elementEmoji + " <#" + roles + "> is where you can grab some roles! \n" +
+        elementEmoji + " <#" + map + "> is the channel directory! \n" +
+        elementEmoji + " <#" + basingse + "> is our general chat! \n" +
+        elementEmoji + " <#" + camp + "> is our new member chat! \n" +
+        elementEmoji + " <#" + nationChat + "> is your nation chat! \n" +
+        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
 
     let channelTo = receivedMessage.guild.channels.cache.get(gates)
     
@@ -196,6 +162,7 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
         .setColor(col)
         .setDescription(verifiedMessage)
         .setThumbnail(thumb)
+        
     channelTo.send(embed)
 }
 

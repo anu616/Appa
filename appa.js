@@ -22,9 +22,10 @@ client.on('ready', () => {
 
 //importing code modules
 import verify from './verify.js'
+import yipYip from './yipyip.js'
 
 function processCommand(receivedMessage) {
-    let commandFull = receivedMessage.content.substr(pLen) //command is what the user inputs after prefix
+    let commandFull = receivedMessage.content.substr(pLen).toLowerCase() //command is what the user inputs after prefix
     let commandSplit = commandFull.split(" ")               //splitting the command to separate command and args
     let command = commandSplit[0]                           //the command
     let args = commandSplit.slice(1)                        //args
@@ -36,18 +37,21 @@ function processCommand(receivedMessage) {
         helpCommand(args, receivedMessage)
     } else if (contains("Verify", command)) {
         verify(args, receivedMessage, prefix)
-    }
+    } else if (contains("Yip-Yip", command)) {
+        yipYip(receivedMessage)
+    } 
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify']
+    let commandList = ['Help', 'Verify', 'Yip-Yip']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
         if (contains("Verify", argCommand)) {
             verify(args, receivedMessage, prefix)
-        }
-        else {
+        } else if (contains("Yip-Yip", argCommand)) {
+            receivedMessage.channel.send("Takes you to some of the important channels of the server")
+        } else {
             receivedMessage.channel.send("That is not a valid command")
         }
     } else {
