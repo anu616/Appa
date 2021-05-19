@@ -6,7 +6,7 @@ import verify from './verify.js'
 import yipYip from './yipyip.js'
 import dice from './dice.js'
 import vcRole from './vcrole.js'
-import logMsg from './rawShaw.js'
+import logMsg from './ranShaw.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
