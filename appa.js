@@ -2,11 +2,11 @@
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
-import verify from './verify.js'
-import yipYip from './yipyip.js'
-import dice from './dice.js'
-import vcRole from './vcrole.js'
-import logMsg from './ranShaw.js'
+import verify from './Commands/verify.js'
+import yipYip from './Commands/yipyip.js'
+import dice from './Commands/dice.js'
+import vcRole from './Commands/vcrole.js'
+import logMsg from './Commands/ranShaw.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
