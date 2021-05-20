@@ -97,7 +97,7 @@ function contains(str, word) {
 }
 
 function bestBot(args, receivedMessage) {
-    if(contains("bot", args[0].toLowerCase())) {
+    if(contains(args[0], "bot")) {
         receivedMessage.channel.send("https://tenor.com/view/pog-frog-frog-pog-frog-dance-gif-20735320")
     } else {
         return 
