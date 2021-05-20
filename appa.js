@@ -68,24 +68,34 @@ function processCommand(receivedMessage) {
 
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
-        
+
     } else if (contains("Best", command)) {
         bestBot(args, receivedMessage)
     } 
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip-Yip', 'Dice']
+    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Best Bot']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
         if (contains("Verify", argCommand)) {
             verify(args, receivedMessage, prefix)
+
         } else if (contains("Yip-Yip", argCommand)) {
             receivedMessage.channel.send("Takes you to some of the important channels of the server")
+
         } else if (contains("Dice", argCommand)) {
             dice(args, receivedMessage)
-        } else {
+
+        } else if (contains("Best", argCommand)) {
+            if(contains(args[1], "bot")) {
+                receivedMessage.channel.send("Try it for poggness")
+            } else {
+                return 
+            }
+            
+        }else {
             receivedMessage.channel.send("That is not a valid command")
         }
     } else {
