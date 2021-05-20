@@ -7,6 +7,7 @@ import yipYip from './Commands/yipyip.js'
 import dice from './Commands/dice.js'
 import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
+import easterEggs from './Commands/eastereggs,js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -69,13 +70,13 @@ function processCommand(receivedMessage) {
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
 
-    } else if (contains("Best", command)) {
-        bestBot(args, receivedMessage)
+    } else {
+        easterEggs(command, args, receivedMessage)
     } 
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Best Bot']
+    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Baby Bisons']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
@@ -88,13 +89,15 @@ function helpCommand(args, receivedMessage) {
         } else if (contains("Dice", argCommand)) {
             dice(args, receivedMessage)
 
-        } else if (contains("Best", argCommand)) {
-            if(contains(args[1], "bot")) {
-                receivedMessage.channel.send("Try it for poggness")
+        } else if (contains("Baby", argCommand)) {
+            if(contains(args[1], "bisons")) {
+                receivedMessage.channel.send("Appa Babie Bisons! \n" +
+                "There are some hidden easter eggs commands that reply with gifs. \n" + 
+                "Have fun finding them!")
+                receivedMessage.channel.send("https://i.pinimg.com/originals/c3/45/b3/c345b38ebb09443dcf9dbb79b08e27f9.gif")
             } else {
                 return 
             }
-            
         }else {
             receivedMessage.channel.send("That is not a valid command")
         }
