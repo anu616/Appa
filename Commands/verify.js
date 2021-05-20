@@ -153,6 +153,7 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
         thumb = "https://media1.tenor.com/images/1ce36828df309020651e7057323cd09d/tenor.gif"
 
     } else if(contains("Air Nomads", nation)) {
+        console.log('entered air')
        col = receivedMessage.guild.roles.cache.get("725052062546788373").hexColor
        thumb = "https://media.tenor.com/images/e415cd6618b808c89193f7a3f833ce49/tenor.gif"
     }
@@ -162,7 +163,8 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
         .setColor(col)
         .setDescription(verifiedMessage)
         .setThumbnail(thumb)
-        
+    
+    console.log('gonna send')
     channelTo.send(embed)
 }
 
