@@ -74,13 +74,6 @@ function addAge(userID, age, receivedMessage) {
     }
 }
 
-function contains(str, word) {
-    str = str.toLowerCase()
-    word = word.toLowerCase()
-
-    return(str.includes(word))
-}
-
 function verifiedMessage(userID, nation, receivedMessage) {
     let gates = "725687980874006548" 
     //let bottest = "760099744499367937"
@@ -140,6 +133,8 @@ function verifiedMessage(userID, nation, receivedMessage) {
 function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
     let col = ""
     let thumb = ""
+    console.log('nation')
+    
     if(contains("Fire Nation", nation)) {
         col = receivedMessage.guild.roles.cache.get("725052068007641201").hexColor
         thumb = "https://media1.tenor.com/images/64853184ba2177f476dbc54cd9089fea/tenor.gif"
@@ -166,6 +161,13 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
     
     console.log('gonna send')
     channelTo.send(embed)
+}
+
+function contains(str, word) {
+    str = str.toLowerCase()
+    word = word.toLowerCase()
+
+    return(str.includes(word))
 }
 
 export { verify as default }
