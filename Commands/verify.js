@@ -122,7 +122,7 @@ function verifiedMessage(userID, nation, receivedMessage) {
         elementEmoji + " <#" + basingse + "> is our general chat! \n" +
         elementEmoji + " <#" + camp + "> is our new member chat! \n" +
         elementEmoji + " <#" + nationChat + "> is your nation chat! \n" +
-        "Let us know if you guys have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
+        "Let us know if you have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
 
     let channelTo = receivedMessage.guild.channels.cache.get(gates)
     
@@ -133,36 +133,31 @@ function verifiedMessage(userID, nation, receivedMessage) {
 function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
     let col = ""
     let thumb = ""
-    console.log(nation)
 
-    if(contains("Fire Nation", nation)) {
+    if(contains(nation, "fire")) {
+        console.log('in fire')
         col = receivedMessage.guild.roles.cache.get("725052068007641201").hexColor
         thumb = "https://media1.tenor.com/images/64853184ba2177f476dbc54cd9089fea/tenor.gif"
 
-    } else if(contains("Water Tribe", nation)) {
+    } else if(contains(nation, "water")) {
         col = receivedMessage.guild.roles.cache.get("725052064362922096").hexColor
         thumb = "https://media1.tenor.com/images/7cbc8c22b7b8d52f844f78ef4060a977/tenor.gif"
 
-    } else if(contains("Earth Kingdom", nation)) {
+    } else if(contains(nation, "earth")) {
         col = receivedMessage.guild.roles.cache.get("725052066308816937").hexColor
         thumb = "https://media1.tenor.com/images/1ce36828df309020651e7057323cd09d/tenor.gif"
 
-    } else if(contains("Air Nomads", nation)) {
-        console.log('entered air')
+    } else if(contains(nation, "air")) {
        col = receivedMessage.guild.roles.cache.get("725052062546788373").hexColor
        thumb = "https://media.tenor.com/images/e415cd6618b808c89193f7a3f833ce49/tenor.gif"
     }
 
-    console.log(col)
-    console.log(thumb)
-    
     const embed = new MessageEmbed()
         .setTitle("Here are some channels you should check out!")
         .setColor(col)
         .setDescription(verifiedMessage)
         .setThumbnail(thumb)
     
-    console.log('gonna send')
     channelTo.send(embed)
 }
 
