@@ -133,8 +133,8 @@ function verifiedMessage(userID, nation, receivedMessage) {
 function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
     let col = ""
     let thumb = ""
-    console.log('nation')
-    
+    console.log(nation)
+
     if(contains("Fire Nation", nation)) {
         col = receivedMessage.guild.roles.cache.get("725052068007641201").hexColor
         thumb = "https://media1.tenor.com/images/64853184ba2177f476dbc54cd9089fea/tenor.gif"
@@ -153,6 +153,9 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
        thumb = "https://media.tenor.com/images/e415cd6618b808c89193f7a3f833ce49/tenor.gif"
     }
 
+    console.log(col)
+    console.log(thumb)
+    
     const embed = new MessageEmbed()
         .setTitle("Here are some channels you should check out!")
         .setColor(col)
