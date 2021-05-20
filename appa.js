@@ -55,12 +55,20 @@ function processCommand(receivedMessage) {
 
     if (contains("Help", command)) {
         helpCommand(args, receivedMessage)
+
     } else if (contains("Verify", command)) {
         verify(args, receivedMessage, prefix)
-    } else if (contains("Yip-Yip", command)) {
-        yipYip(receivedMessage)
+
+    } else if (contains("Yip", command)) {
+        if(contains(args[0], "yip")) {
+            yipYip(receivedMessage)
+        } else {
+            return
+        }
+
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
+        
     } else if (contains("Best", command)) {
         bestBot(args, receivedMessage)
     } 
