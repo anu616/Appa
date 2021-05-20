@@ -61,6 +61,8 @@ function processCommand(receivedMessage) {
         yipYip(receivedMessage)
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
+    } else if (contains("Best", command)) {
+        bestBot(args, receivedMessage)
     } 
 }
 
@@ -92,6 +94,14 @@ function contains(str, word) {
     word = word.toLowerCase()
 
     return(str.includes(word))
+}
+
+function bestBot(receivedMessage, args) {
+    if(contains("bot", args)) {
+        receivedMessage.channel.send("https://tenor.com/view/pog-frog-frog-pog-frog-dance-gif-20735320")
+    } else {
+        return 
+    }
 }
 
 client.login(process.env.token)
