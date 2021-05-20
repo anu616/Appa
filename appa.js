@@ -7,7 +7,7 @@ import yipYip from './Commands/yipyip.js'
 import dice from './Commands/dice.js'
 import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
-import easterEggs from './Commands/eastereggs,js'
+import easterEggs from './Commands/eastereggs.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
