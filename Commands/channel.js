@@ -21,7 +21,6 @@ function mute(args, receivedMessage) {
         }
         
     }
-
     createChannel(receivedMessage, muteCatID, name, "mute", userID, reason)
 }
 
@@ -43,16 +42,21 @@ function createChannel(message, category, name, kind, userID, reason) {
         ]
     }).then(madeChannel => {
         if(kind == "mute") {
-            madeChannel.overwritePermissions([
+            madeChannel.updateOverwrite("736759673583173714", [
                 {
-                    id: "736759673583173714",
+                    allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 
+                         'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
+                }
+            ])
+            madeChannel.updateOverwrite("715503417845350483", [
+                {
                     allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 
                          'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
                 }
             ])
 
             madeChannel.send("<@" + userID + "> You have been muted for " + reason + " \n" + 
-            "Please stay patient while a <@&736759673583173714> member comes to discuss the situation with you")
+            "Please stay patient while a <@&715503417845350483> member comes to discuss the situation with you")
 
         } /* else if(kind == "A") {
             madeChannel.overwritePermissions([
