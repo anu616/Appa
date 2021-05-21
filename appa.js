@@ -72,7 +72,7 @@ function processCommand(receivedMessage) {
         dice(args, receivedMessage)
 
     }else if (contains("Mute", command)) {
-        dice(args, receivedMessage)
+        mute(args, receivedMessage)
 
     } else {
         easterEggs(command, args, receivedMessage)
@@ -80,7 +80,7 @@ function processCommand(receivedMessage) {
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Baby Bisons']
+    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Mute', 'Baby Bisons']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
