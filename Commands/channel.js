@@ -48,12 +48,13 @@ function createChannel(message, category, name, kind, userID, reason) {
                          'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
                 }
             ])
-            madeChannel.updateOverwrite("715503417845350483", [
-                {
-                    allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 
-                         'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
-                }
-            ])
+            madeChannel.updateOverwrite("715503417845350483", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
+                MANAGE_CHANNELS: true,
+                MANAGE_MESSAGES: true
+            })
 
             madeChannel.send("<@" + userID + "> You have been muted for " + reason + " \n" + 
             "Please stay patient while a <@&715503417845350483> member comes to discuss the situation with you")
