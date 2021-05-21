@@ -22,10 +22,10 @@ function mute(args, receivedMessage) {
         }
     }
 
-    createChannel(receivedMessage, muteCatID, name, "mute", userID)
+    createChannel(receivedMessage, muteCatID, name, "mute", userID, reason)
 }
 
-function createChannel(message, category, name, kind, userID) {
+function createChannel(message, category, name, kind, userID, reason) {
 
     message.guild.channels.create(name, {
         type: "text",
@@ -51,7 +51,7 @@ function createChannel(message, category, name, kind, userID) {
                 }
             ])
 
-            madeChannel.send("<@" + userID + "> You have been muted. \n" + 
+            madeChannel.send("<@" + userID + "> You have been muted for " + reason + " \n" + 
             "<@&715503417845350483> will now take necessary action")
 
         } /* else if(kind == "A") {
