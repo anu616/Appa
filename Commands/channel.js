@@ -64,3 +64,5 @@ function createChannel(message, category, name, kind, userID) {
 
     })
 }
+
+export { mute as default}

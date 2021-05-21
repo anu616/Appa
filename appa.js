@@ -8,6 +8,7 @@ import dice from './Commands/dice.js'
 import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
 import easterEggs from './Commands/eastereggs.js'
+import mute from './Commands/channel.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -68,6 +69,9 @@ function processCommand(receivedMessage) {
         }
 
     } else if (contains("Dice", command)) {
+        dice(args, receivedMessage)
+
+    }else if (contains("Mute", command)) {
         dice(args, receivedMessage)
 
     } else {
