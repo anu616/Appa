@@ -55,7 +55,7 @@ function createChannel(message, category, name, kind, userID, reason) {
                 MANAGE_CHANNELS: true,
                 MANAGE_MESSAGES: true
             })
-
+            
             madeChannel.send("<@" + userID + "> You have been muted for " + reason + " \n" + 
             "Please stay patient while a <@&715503417845350483> member comes to discuss the situation with you")
 
