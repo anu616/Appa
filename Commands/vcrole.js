@@ -7,27 +7,28 @@ function vcRole(oldState, newState) {
     } else {
         if(oldState.channelID == null) {
             console.log(newState.member.user.tag + " joined VC")
-            if(newState.channelID == "764289712596582400"){             //iroh
+            if(newState.channelID == "764289712596582400" || newState.channelID == "764289734947635241"){             
                 newState.member.roles.add('776070939434680351')
-            } else if(newState.channelID == "764289734947635241"){      //tsungi
-                newState.member.roles.add('781161360419061760')
+            } else if(newState.channelID == "775666234179059728"){      
+                newState.member.roles.add('776074008528420884')
             }
         } else if (newState.channelID == null) {
             console.log(newState.member.user.tag + " left VC")
-            if(oldState.channelID == "764289712596582400") {            //iroh
+            if(oldState.channelID == "764289712596582400" || oldState.channelID == "764289734947635241") {            
                 oldState.member.roles.remove('776070939434680351')
-            } else if(oldState.channelID == "764289734947635241") {     //tsungi
-                oldState.member.roles.remove('781161360419061760')
+            } else if(oldState.channelID == "775666234179059728") {     
+                oldState.member.roles.remove('776074008528420884')
             }
         } else {
             console.log(newState.member.user.tag + " moved VCs")
-            if(oldState.channelID == "764289712596582400" && newState.channelID == "764289734947635241") {
-                //iroh to tsungi
+            if((oldState.channelID == "764289712596582400" || oldState.channelID == "764289734947635241")
+             && newState.channelID == "775666234179059728") {
                 newState.member.roles.remove('776070939434680351')
-                newState.member.roles.add("781161360419061760")
-            } else if(oldState.channelID == "764289734947635241"  && newState.channelID == "764289712596582400") {
+                newState.member.roles.add("776074008528420884")
+            } else if(oldState.channelID == "764289734947635241"  && 
+            (newState.channelID == "764289712596582400" || newState.channelID == "764289734947635241")) {
                 //tsungi to iroh
-                newState.member.roles.remove("781161360419061760")
+                newState.member.roles.remove("776074008528420884")
                 newState.member.roles.add('776070939434680351')
             }
         }
