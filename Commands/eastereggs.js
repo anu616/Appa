@@ -4,9 +4,7 @@ function easterEggs(command, args, receivedMessage) {
         bestBot(args, receivedMessage)
     } else if(contains("Party", command)) {
         hellmo(receivedMessage)
-    } else {
-        appaFlop(receivedMessage)
-    }
+    } 
 
 }
 
@@ -29,7 +27,7 @@ function hellmo(receivedMessage) {
     receivedMessage.channel.send("https://tenor.com/view/party-hellmo-elmo-fire-lit-gif-19133752")
 }
 
-function appaFlop(receivedMessage) {
+/* function appaFlop(receivedMessage) {
     receivedMessage.channel.send("https://64.media.tumblr.com/07af19af6ebbe5732601843a06b0ce25/b125cc6e0d920dcf-90/s400x600/9ee645617f32941483742f4b4fc217ff54c51e37.gif")
-}
+} */
 export { easterEggs as default }
