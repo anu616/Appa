@@ -8,7 +8,7 @@ import dice from './Commands/dice.js'
 import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
 import easterEggs from './Commands/eastereggs.js'
-import mute from './Commands/channel.js'
+import { mute, unmute } from './Commands/mute.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
