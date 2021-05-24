@@ -9,7 +9,7 @@ function mute(args, receivedMessage) {
             
         }
         let muteCatID = "741158534623920168"
-        let name = "🧊 ┆ cooler-" + receivedMessage.guild.members.cache.get(userID).user.username
+        let name = "🧊┆cooler-" + receivedMessage.guild.members.cache.get(userID).user.username
         
         receivedMessage.guild.members.cache.get(userID).roles.add("729667375804448818") //warden
         
