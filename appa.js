@@ -71,8 +71,11 @@ function processCommand(receivedMessage) {
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
 
-    }else if (contains("Mute", command)) {
+    } else if (contains("Mute", command)) {
         mute(args, receivedMessage)
+
+    } else if (contains("Unmute", command)) {
+        unmute(args, receivedMessage)
 
     } else {
         easterEggs(command, args, receivedMessage)
