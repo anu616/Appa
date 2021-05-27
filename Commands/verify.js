@@ -6,7 +6,7 @@ function verify(args, receivedMessage, prefix) {
         if(args.length < 3) {
             receivedMessage.channel.send("Please run the command in the following format: \n"
             + "Enter the user, their age and nation in the following format: \n"
-            + "`" + prefix + "verify [@User] [Age] [Nation]`\n" +
+            + "`appa verify [@User] [Age] [Nation]`\n" +
             "Note: This command requires you to have a staff role.")
         } else {
             let userID = args[0].substr(3, 18)
