@@ -7,25 +7,28 @@ function bump(args, receivedMessage) {
     }
     else {
         let ms = 0
-        args.join(' ')
-        console.log(args)
+        let bumpType = ""
+        for (let i = 0; i < args.length; i++) {
+            bumpType += args[i] + " "            
+        }
+        console.log(bumpType)
 
-        if(args == "!d bump") {
+        if(contains(bumpType, "!d bump")) {
             ms = 2*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
 
-        } else if(args == "!bump") {
+        } else if(contains(bumpType, "!bump")) {
             ms = 4*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
 
-        } else if(args == "dlm!bump") {
+        } else if(contains(bumpType, "dlm!bump")) {
             ms = 8*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
 
         }
 
         setTimeout(() => {
-            bumpMsg(args, receivedMessage)
+            bumpMsg(bumpType, receivedMessage)
         }, ms);
     }
 }
@@ -40,7 +43,7 @@ function bumpMsg(bumpType, receivedMessage) {
     let col = ""
     let thumb = ""
 
-    if(bumpType == "!d bump") {
+    if(contains(bumpType, "!d bump")) {
         msg = "<@&726161843793428562> Its time to bump the server!"
         title = "Do !d bump"
         col = "0xD7E7F4"
@@ -48,7 +51,8 @@ function bumpMsg(bumpType, receivedMessage) {
         "After bumping, set a reminder using `appa bump !d bump`"
         thumb = "https://cdn.discordapp.com/avatars/302050872383242240/67342a774a9f2d20d62bfc8553bb98e0.png?size=1024"
 
-    } else if(bumpType == "!bump") {
+
+    } else if(contains(bumpType, "!bump")) {
         msg = "Its time to bump the server!"
         title = "Do !bump"
         col ="0x25345C"
@@ -56,15 +60,15 @@ function bumpMsg(bumpType, receivedMessage) {
         "After bumping, set a reminder using `appa bump !bump`"
         thumb ="https://cdn.discordapp.com/avatars/315926021457051650/f90b3947729c79fc37e9ab9d0befc37f.png?size=1024"
 
-    } else if(bumpType == "dlm!bump") {
+    } else if(contains(bumpType, "dlm!bump")) {
         msg = "Its time to bump the server!"
         title = "Do !bump"
         col ="0x748BDA"
         desc ="Do `dlm!bump` to bump! \n" + 
         "After bumping, set a reminder using `appa bump dlm!bump`"
         thumb ="https://cdn.discordapp.com/avatars/212681528730189824/8f501c0ea80824ce709f7adebfe11a94.png?size=1024"
-    }
 
+    }
     const embedMsg = new MessageEmbed()
         .setTitle(title)
         .setColor(col)
@@ -75,6 +79,13 @@ function bumpMsg(bumpType, receivedMessage) {
 
     bumpChannel.send(msg)
     bumpChannel.send(embedMsg)
+}
+
+function contains(str, word) {
+    str = str.toLowerCase()
+    word = word.toLowerCase()
+
+    return(str.includes(word))
 }
 
 export { bump as default }
