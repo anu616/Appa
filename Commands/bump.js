@@ -57,3 +57,5 @@ function bumpMsg(bumpType, receivedMessage) {
     bumpChannel.send(msg)
     bumpChannel.send(embedMsg)
 }
+
+export { bump as default }
