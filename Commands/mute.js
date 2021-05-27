@@ -5,7 +5,7 @@ function mute(args, receivedMessage) {
         if(args.length == 0) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
-            "Example: `appa mute <@User> <Reason> \n" +
+            "Example: `appa mute <@User> <Reason>` \n" +
             "Note: This command requires you to have a staff role.")
         } else {
             let userID = args[0].substr(3, 18)
@@ -34,7 +34,7 @@ function unmute(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
         if(args.length == 0) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to unmute \n" +
-            "Example: `appa unmute <@User>\n" +
+            "Example: `appa unmute <@User>` \n" +
             "Note: This command requires you to have a staff role.")
         } else {
             let userID = args[0].substr(3, 18)
