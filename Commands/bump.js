@@ -6,12 +6,16 @@ function bump(args, receivedMessage) {
 
     if(bumpType == "!d bump") {
         ms = 2*3600*1000
+        receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
 
     } else if(bumpType == "!bump") {
         ms = 4*3600*1000
+        receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
 
     } else if(bumpType == "dlm!bump") {
         ms = 8*3600*1000
+        receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
+
     }
 
     setTimeout(() => {
