@@ -7,7 +7,7 @@ function bump(args, receivedMessage) {
     }
     else {
         let ms = 0
-        let bumpType = args.splice(1)
+        let bumpType = args.splice(0)
         console.log(bumpType)
 
         if(bumpType == "!d bump") {
@@ -72,7 +72,7 @@ function bumpMsg(bumpType, receivedMessage) {
         .setThumbnail(thumb)
 
     console.log(embedMsg)
-    
+
     bumpChannel.send(msg)
     bumpChannel.send(embedMsg)
 }
