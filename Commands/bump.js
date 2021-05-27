@@ -1,26 +1,33 @@
 import { MessageEmbed } from 'discord.js'
 
 function bump(args, receivedMessage) {
-    let ms = 0
-    let bumpType = args.splice(1)
-
-    if(bumpType == "!d bump") {
-        ms = 2*3600*1000
-        receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
-
-    } else if(bumpType == "!bump") {
-        ms = 4*3600*1000
-        receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
-
-    } else if(bumpType == "dlm!bump") {
-        ms = 8*3600*1000
-        receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
-
+    if(args.length == 0){
+        receivedMessage.channel.send("Please re run the command specifying the type of bump. \n" +
+        "Example: `appa bump !d bump`")
     }
+    else {
+        let ms = 0
+        let bumpType = args.splice(1)
+        console.log(bumpType)
 
-    setTimeout(() => {
-        bumpMsg(bumpType, receivedMessage)
-    }, ms);
+        if(bumpType == "!d bump") {
+            ms = 2*3600*1000
+            receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
+
+        } else if(bumpType == "!bump") {
+            ms = 4*3600*1000
+            receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
+
+        } else if(bumpType == "dlm!bump") {
+            ms = 8*3600*1000
+            receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
+
+        }
+
+        setTimeout(() => {
+            bumpMsg(bumpType, receivedMessage)
+        }, ms);
+    }
 }
 
 function bumpMsg(bumpType, receivedMessage) {
@@ -64,6 +71,8 @@ function bumpMsg(bumpType, receivedMessage) {
         .setDescription(desc)
         .setThumbnail(thumb)
 
+    console.log(embedMsg)
+    
     bumpChannel.send(msg)
     bumpChannel.send(embedMsg)
 }
