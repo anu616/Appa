@@ -7,25 +7,25 @@ function bump(args, receivedMessage) {
     }
     else {
         let ms = 0
-        let bumpType = args.splice(0)
+        args.join(' ')
         console.log(bumpType)
 
-        if(bumpType == "!d bump") {
+        if(args == "!d bump") {
             ms = 2*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
 
-        } else if(bumpType == "!bump") {
+        } else if(args == "!bump") {
             ms = 4*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
 
-        } else if(bumpType == "dlm!bump") {
+        } else if(args == "dlm!bump") {
             ms = 8*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
 
         }
 
         setTimeout(() => {
-            bumpMsg(bumpType, receivedMessage)
+            bumpMsg(args, receivedMessage)
         }, ms);
     }
 }
