@@ -98,10 +98,7 @@ function helpCommand(args, receivedMessage) {
 
         } else if (contains("Baby", argCommand)) {
             if(contains(args[1], "bisons")) {
-                receivedMessage.channel.send("Appa Babie Bisons! \n" +
-                "There are some hidden easter eggs commands that reply with gifs. \n" + 
-                "Have fun finding them!")
-                receivedMessage.channel.send("https://i.pinimg.com/originals/c3/45/b3/c345b38ebb09443dcf9dbb79b08e27f9.gif")
+                easterEggs(argCommand, args, receivedMessage)
             } else {
                 return 
             }

@@ -2,8 +2,19 @@
 function easterEggs(command, args, receivedMessage) {
     if(contains("Best", command)) {
         bestBot(args, receivedMessage)
+
     } else if(contains("Party", command)) {
         hellmo(receivedMessage)
+        
+    } else if(contains("Baby", command)) {
+        if(contains(args[1], "bisons")) {
+            receivedMessage.channel.send("Appa Babie Bisons! \n" +
+            "There are some hidden easter eggs commands that reply with gifs. \n" + 
+            "Have fun finding them!")
+            receivedMessage.channel.send("https://i.pinimg.com/originals/c3/45/b3/c345b38ebb09443dcf9dbb79b08e27f9.gif")
+        } else {
+            return 
+        }
     } 
 
 }
