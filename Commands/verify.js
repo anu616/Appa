@@ -120,7 +120,6 @@ function verifiedMessage(userID, nation, receivedMessage) {
     let verificationMsg = elementEmoji + " <#" + roles + "> is where you can grab some roles! \n" +
         elementEmoji + " <#" + map + "> is the channel directory! \n" +
         elementEmoji + " <#" + basingse + "> is our general chat! \n" +
-        elementEmoji + " <#" + camp + "> is our new member chat! \n" +
         elementEmoji + " <#" + nationChat + "> is your nation chat! \n" +
         "Let us know if you have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
 
