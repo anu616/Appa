@@ -8,7 +8,7 @@ function bump(args, receivedMessage) {
     else {
         let ms = 0
         args.join(' ')
-        console.log(bumpType)
+        console.log(args)
 
         if(args == "!d bump") {
             ms = 2*3600*1000
