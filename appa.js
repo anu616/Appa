@@ -87,7 +87,7 @@ function processCommand(receivedMessage) {
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Mute', 'Baby Bisons']
+    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Mute', 'Unmute', 'Bump', 'Baby Bisons']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
@@ -99,6 +99,15 @@ function helpCommand(args, receivedMessage) {
 
         } else if (contains("Dice", argCommand)) {
             dice(args, receivedMessage)
+
+        } else if (contains("Mute", argCommand)) {
+            mute(args, receivedMessage)
+
+        } else if (contains("Unmute", argCommand)) {
+            unmute(args, receivedMessage)
+
+        } else if (contains("Bump", argCommand)) {
+            bump(args, receivedMessage)
 
         } else if (contains("Baby", argCommand)) {
             if(contains(args[1], "bisons")) {
