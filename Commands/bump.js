@@ -11,19 +11,20 @@ function bump(args, receivedMessage) {
         for (let i = 0; i < args.length; i++) {
             bumpType += args[i] + " "            
         }
+        bumpType = bumpType.trimEnd()
         console.log(bumpType)
 
-        if(contains(bumpType, "!d bump")) {
+        if(bumpType == "!d bump") {
             ms = 2*3600*1000
             receivedMessage.channel.send("I will remind you to do !d bump in 2 hrs")
 
-        } else if(contains(bumpType, "!bump")) {
+        } else if(bumpType == "!bump") {
             ms = 4*3600*1000
-            receivedMessage.channel.send("I will remind you to do !d bump in 4 hrs")
+            receivedMessage.channel.send("I will remind you to do !bump in 4 hrs")
 
-        } else if(contains(bumpType, "dlm!bump")) {
+        } else if(bumpType == "dlm!bump") {
             ms = 8*3600*1000
-            receivedMessage.channel.send("I will remind you to do !d bump in 8 hrs")
+            receivedMessage.channel.send("I will remind you to do dlm!bump in 8 hrs")
 
         }
 
@@ -43,7 +44,7 @@ function bumpMsg(bumpType, receivedMessage) {
     let col = ""
     let thumb = ""
 
-    if(contains(bumpType, "!d bump")) {
+    if(bumpType == "!d bump") {
         msg = "<@&726161843793428562> Its time to bump the server!"
         title = "Do !d bump"
         col = "0xD7E7F4"
@@ -52,7 +53,7 @@ function bumpMsg(bumpType, receivedMessage) {
         thumb = "https://cdn.discordapp.com/avatars/302050872383242240/67342a774a9f2d20d62bfc8553bb98e0.png?size=1024"
 
 
-    } else if(contains(bumpType, "!bump")) {
+    } else if(bumpType == "!bump") {
         msg = "Its time to bump the server!"
         title = "Do !bump"
         col ="0x25345C"
@@ -60,9 +61,9 @@ function bumpMsg(bumpType, receivedMessage) {
         "After bumping, set a reminder using `appa bump !bump`"
         thumb ="https://cdn.discordapp.com/avatars/315926021457051650/f90b3947729c79fc37e9ab9d0befc37f.png?size=1024"
 
-    } else if(contains(bumpType, "dlm!bump")) {
+    } else if(bumpType == "dlm!bump") {
         msg = "Its time to bump the server!"
-        title = "Do !bump"
+        title = "Do dlm!bump"
         col ="0x748BDA"
         desc ="Do `dlm!bump` to bump! \n" + 
         "After bumping, set a reminder using `appa bump dlm!bump`"
@@ -79,13 +80,6 @@ function bumpMsg(bumpType, receivedMessage) {
 
     bumpChannel.send(msg)
     bumpChannel.send(embedMsg)
-}
-
-function contains(str, word) {
-    str = str.toLowerCase()
-    word = word.toLowerCase()
-
-    return(str.includes(word))
 }
 
 export { bump as default }
