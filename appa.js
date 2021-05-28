@@ -123,7 +123,7 @@ function helpCommand(args, receivedMessage) {
         commandList.forEach(element => {
             receivedMessage.channel.send(element)            
         });
-        receivedMessage.channel.send("Type  help `<command>` to know more about a specific command")
+        receivedMessage.channel.send("Type  `appa help <command>` to know more about a specific command")
     }
 }
 
