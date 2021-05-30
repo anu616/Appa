@@ -50,4 +50,4 @@ function unmute(args, receivedMessage) {
 }
 
 
-export { mute, unmute}
+export default { mute, unmute }

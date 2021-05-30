@@ -35,4 +35,5 @@ function vcRole(oldState, newState) {
     }
 }
 
-export { vcRole as default }
+
+export default vcRole

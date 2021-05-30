@@ -31,4 +31,4 @@ function embedMsg(msg, receivedMessage) {
     receivedMessage.channel.send(embed)
 }
 
-export { yipYip as default }
+export default yipYip
