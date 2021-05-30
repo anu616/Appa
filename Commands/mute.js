@@ -1,4 +1,4 @@
-import { createChannel } from "./channel.js"
+import createChannel from "./channel.js"
 
 function mute(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
@@ -50,4 +50,4 @@ function unmute(args, receivedMessage) {
 }
 
 
-export { mute, unmute as default }
+export { mute, unmute }
