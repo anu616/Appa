@@ -168,4 +168,4 @@ function contains(str, word) {
     return(str.includes(word))
 }
 
-export default verify
+export { verify as default }

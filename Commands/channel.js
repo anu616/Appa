@@ -61,4 +61,4 @@ function createChannel(message, category, name, kind, userID, reason) {
     })
 }
 
-export default createChannel 
+export { createChannel as default }

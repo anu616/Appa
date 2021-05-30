@@ -44,4 +44,4 @@ function msgEmbed(rolls, receivedMessage) {
     receivedMessage.channel.send(embed)
 }
 
-export default dice
+export { dice as default }

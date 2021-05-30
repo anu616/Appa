@@ -13,4 +13,4 @@ function logMsg(receivedMessage, channelToID) {
     channelTo.send(embedLog)
 }
 
-export default logMsg
+export { logMsg as default }
