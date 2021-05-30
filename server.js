@@ -15,4 +15,4 @@ function alive(){
 
 }
 
-export default alive
+export { alive as default }
