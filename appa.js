@@ -2,6 +2,8 @@
 import { default as Discord } from 'discord.js'
 const client = new Discord.Client()
 
+import alive from "./server.js"
+
 import verify from './Commands/verify.js'
 import yipYip from './Commands/yipyip.js'
 import dice from './Commands/dice.js'
@@ -142,4 +144,5 @@ function bestBot(args, receivedMessage) {
     }
 }
 
+alive()
 client.login(process.env.token)
