@@ -9,7 +9,13 @@ function verify(args, receivedMessage, prefix) {
             + "`appa verify [@User] [Age] [Nation]`\n" +
             "Note: This command requires you to have a staff role.")
         } else {
-            let userID = args[0].substr(3, 18)
+            let userID = ""
+            if(args[0].startsWith("<@!")) {
+                userID = args[0].substr(3, 18)
+            }
+            else {
+                userID = args[0].substr(2, 18)
+            }
             let age = args[1]
             let nation = args[2]
             
