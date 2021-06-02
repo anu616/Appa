@@ -15,7 +15,7 @@ function lgbtqColors(guild) {
                     
     let col = Math.floor(Math.random() * colorHex.length)
 
-    guild.roles.cache.get("835240719152316436").setColor(colorHex[col], "making avatar gay again")
+    guild.roles.cache.get("843748676530864159").setColor(colorHex[col], "making avatar gay again")
     console.log("changed color!")
     
 }
