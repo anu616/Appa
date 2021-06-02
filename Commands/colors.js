@@ -17,6 +17,7 @@ function lgbtqColors(guild) {
 
     setTimeout(() => {
         guild.roles.cache.get("835240719152316436").setColor(colorHex[col], "making avatar gay again")
+        console.log("changed color!")
     }, (5 * 60 * 3600));
     
 }
