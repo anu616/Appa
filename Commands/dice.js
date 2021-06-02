@@ -5,9 +5,6 @@ function dice(args, receivedMessage) {
     {
         let diceNo = parseInt(args[0])
         let diceSide = parseInt(args[1])
-
-		console.log("diceNo:" + diceNo)
-		console.log("diceSide:" + diceSide)
 		
         if (diceNo > diceSide) {
             receivedMessage.channel.send("The number of die have to be lesser than or equal to the " +
