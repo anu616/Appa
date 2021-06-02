@@ -12,6 +12,7 @@ import logMsg from './Commands/ranShaw.js'
 import easterEggs from './Commands/eastereggs.js'
 import { mute, unmute } from './Commands/mute.js'
 import bump from './Commands/bump.js'
+import lgbtqColors from './Commands/colors.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -31,6 +32,9 @@ function checkPrefix(receivedMessage) {
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
     client.user.setActivity("Flying High")
+
+    let guild = client.guilds.cache.get('715279938424668230')
+    lgbtqColors(guild)
 
     client.on('message', (receivedMessage) => {
         if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
