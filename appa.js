@@ -34,7 +34,9 @@ client.on('ready', () => {
     client.user.setActivity("Flying High")
 
     let guild = client.guilds.cache.get('715279938424668230')
-    lgbtqColors(guild)
+    setTimeout(() => {
+        lgbtqColors(guild)
+    }, (5 * 60 * 3600));
 
     client.on('message', (receivedMessage) => {
         if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
