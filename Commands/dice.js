@@ -3,9 +3,12 @@ import { MessageEmbed } from 'discord.js'
 function dice(args, receivedMessage) {
     if(args.length == 2 )
     {
-        let diceNo = args[0]
-        let diceSide = args[1]
+        let diceNo = parseInt(args[0])
+        let diceSide = parseInt(args[1])
 
+		console.log("diceNo:" + diceNo)
+		console.log("diceSide:" + diceSide)
+		
         if (diceNo > diceSide) {
             receivedMessage.channel.send("The number of die have to be lesser than or equal to the " +
              "number of sides on each dice. ")
