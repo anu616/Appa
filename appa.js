@@ -17,7 +17,6 @@ import lgbtqColors from './Commands/colors.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
-let activity = "Flying High"
 
 function checkPrefix(receivedMessage) {
     receivedMessage.content =  receivedMessage.content.toLowerCase()
@@ -33,7 +32,7 @@ function checkPrefix(receivedMessage) {
 
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
-    client.user.setActivity(activity)
+    client.user.setActivity("Flying High")
 
     let guild = client.guilds.cache.get('715279938424668230')
     
@@ -153,7 +152,7 @@ function contains(str, word) {
 
 function status(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
-        activity = args
+        client.setActivity(args)
     } else {
         receivedMessage.channel.send("You do not have the permission to use this command")
     }
