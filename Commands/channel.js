@@ -64,18 +64,14 @@ function closeChannel(receivedMessage) {
             const collector = receivedMessage.channel.createMessageCollector()
             let messages = collector.channel.messages.cache
             
-            let msgData = "<html> \n" + 
-                        "<head> \n" + "<title>" + name + "</title> \n" + "</head> \n" +
-                        "<body> \n"
+            let msgData = ""
             
             messages.forEach(msg => {
-                msgData += msg.author.tag + " \t" + msg.createdAt + " \n" + msg.content + "\n"
+                msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
                 
             })
-            msgData += "</body> \n" +
-                    "</html>"
             
-            let filePath = "./Logs/" + name + ".html"
+            let filePath = "./Logs/" + name + ".txt"
             fs.writeFile(filePath, msgData, 'utf8', (err) => {
                 if (err) {
                     console.log(err)
