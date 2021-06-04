@@ -18,12 +18,6 @@ function createChannel(message, category, name, kind, userID, reason) {
         ]
     }).then(madeChannel => {
         if(kind == "mute") {
-            madeChannel.updateOverwrite("736759673583173714", [
-                {
-                    allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 
-                         'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
-                }
-            ])
             madeChannel.updateOverwrite("715503417845350483", {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true,
