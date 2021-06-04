@@ -8,16 +8,22 @@ function mute(args, receivedMessage) {
             "Example: `appa mute <@User> <Reason>` \n" +
             "Note: This command requires you to have a staff role.")
         } else {
-            let userID = args[0].substr(3, 18)
+            let userID = ""
+            if(args[0].startsWith("<@!")) {
+                userID = args[0].substr(3, 18)
+            }
+            else {
+                userID = args[0].substr(2, 18)
+            }
             let reason = ""
             for (let i = 1; i < args.length; i++) {
                 reason += args[i] + " "
                 
             }
             let muteCatID = "741158534623920168"
-            let name = "🧊┆cooler-" + receivedMessage.guild.members.cache.get(userID).user.username
+            let name = "🧊・cooler-" + receivedMessage.guild.members.cache.get(userID).user.username
             
-            receivedMessage.guild.members.cache.get(userID).roles.add("729667375804448818") //warden
+            receivedMessage.guild.members.cache.get(userID).roles.add("729667375804448818") //war prisoner
             
             receivedMessage.guild.members.cache.get(userID).roles.remove("726653869102334034") //verified
 
