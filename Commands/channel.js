@@ -100,4 +100,4 @@ function closeChannel(receivedMessage) {
         receivedMessage.channel.send("This channel cannot be closed")
     }
 }
-export { createChannel as default }
+export { createChannel, closeChannel }

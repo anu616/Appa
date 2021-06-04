@@ -11,6 +11,7 @@ import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
 import easterEggs from './Commands/eastereggs.js'
 import { mute, unmute } from './Commands/mute.js'
+import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import lgbtqColors from './Commands/colors.js'
 
@@ -86,6 +87,9 @@ function processCommand(receivedMessage) {
 
     } else if (contains("Unmute", command)) {
         unmute(args, receivedMessage)
+
+    } else if (contains("close", command)) {
+        closeChannel(receivedMessage)
 
     } else if (contains("Bump", command)) {
         bump(args, receivedMessage)
