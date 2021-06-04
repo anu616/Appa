@@ -61,4 +61,43 @@ function createChannel(message, category, name, kind, userID, reason) {
     })
 }
 
+function closeChannel(receivedMessage) {
+    if(receivedMessage.channel.name.startsWith("cooler")) {
+        if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+            let name = receivedMessage.channel.name
+            const collector = receivedMessage.channel.createMessageCollector()
+            let messages = collector.channel.messages.cache
+            
+            let msgData = "<html> \n" + 
+                        "<head> \n" + "<title>" + name + "</title> \n" + "</head> \n" +
+                        "<body> \n"
+            
+            messages.forEach(msg => {
+                msgData += msg.author.tag + " \t" + msg.createdAt + " \n" + msg.content + "\n"
+                
+            })
+            msgData += "</body> \n" +
+                    "</html>"
+            
+            let filePath = "./" + name + ".html"
+            fs.writeFile(filePath, msgData, 'utf8', (err) => {
+                if (err) {
+                    console.log(err)
+                }
+            })
+
+            let logChannel = receivedMessage.guild.channels.cache.get("845418715721760818")
+            logChannel.send({
+                files: [filePath]
+            })
+
+            receivedMessage.channel.delete()
+
+        } else {
+            receivedMessage.channel.send("You do not have permission to use this command")
+        }
+    } else {
+        receivedMessage.channel.send("This channel cannot be closed")
+    }
+}
 export { createChannel as default }
