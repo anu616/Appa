@@ -152,7 +152,7 @@ function contains(str, word) {
 
 function status(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
-        client.setActivity(args)
+        client.user.setActivity(args)
     } else {
         receivedMessage.channel.send("You do not have the permission to use this command")
     }
