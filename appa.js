@@ -17,6 +17,7 @@ import lgbtqColors from './Commands/colors.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
+let activity = "Flying High"
 
 function checkPrefix(receivedMessage) {
     receivedMessage.content =  receivedMessage.content.toLowerCase()
@@ -32,7 +33,7 @@ function checkPrefix(receivedMessage) {
 
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
-    client.user.setActivity("Flying High")
+    client.user.setActivity(activity)
 
     let guild = client.guilds.cache.get('715279938424668230')
     
@@ -94,6 +95,9 @@ function processCommand(receivedMessage) {
     } else if (contains("Bump", command)) {
         bump(args, receivedMessage)
 
+    } else if (contains("Status", command)) {
+        status(args, receivedMessage)
+
     } else {
         easterEggs(command, args, receivedMessage)
     } 
@@ -147,11 +151,11 @@ function contains(str, word) {
     return(str.includes(word))
 }
 
-function bestBot(args, receivedMessage) {
-    if(contains(args[0], "bot")) {
-        receivedMessage.channel.send("https://tenor.com/view/pog-frog-frog-pog-frog-dance-gif-20735320")
+function status(args, receivedMessage) {
+    if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+        activity = args
     } else {
-        return 
+        receivedMessage.channel.send("You do not have the permission to use this command")
     }
 }
 
