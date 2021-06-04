@@ -62,7 +62,7 @@ function createChannel(message, category, name, kind, userID, reason) {
 }
 
 function closeChannel(receivedMessage) {
-    if(receivedMessage.channel.name.startsWith("cooler")) {
+    if(receivedMessage.channel.name.startsWith("🧊・cooler-")) {
         if(receivedMessage.member.roles.cache.has("715503417845350483")) {
             let name = receivedMessage.channel.name
             const collector = receivedMessage.channel.createMessageCollector()
