@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 function createChannel(message, category, name, kind, userID, reason) {
 
     message.guild.channels.create(name, {
