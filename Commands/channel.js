@@ -79,7 +79,7 @@ function closeChannel(receivedMessage) {
             msgData += "</body> \n" +
                     "</html>"
             
-            let filePath = "./" + name + ".html"
+            let filePath = "./Logs/" + name + ".html"
             fs.writeFile(filePath, msgData, 'utf8', (err) => {
                 if (err) {
                     console.log(err)
