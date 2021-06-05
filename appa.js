@@ -30,6 +30,8 @@ function checkPrefix(receivedMessage) {
     return false
 }
 
+let activity = "Flying High"
+
 client.on('ready', () => {
     console.log("Connected as " + client.user.tag)
     client.user.setActivity("Flying High")
@@ -152,7 +154,6 @@ function contains(str, word) {
 
 function status(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
-        let activity = ""
         args.forEach(arg => {
             activity += arg + " "
         });
