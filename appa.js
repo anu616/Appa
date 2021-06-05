@@ -154,8 +154,9 @@ function contains(str, word) {
 
 function status(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+		activity = ""
         args.forEach(arg => {
-            activity = arg + " "
+            activity += arg + " "
         });
         client.user.setActivity(activity)
     } else {
