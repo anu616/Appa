@@ -99,6 +99,9 @@ function processCommand(receivedMessage) {
     } else if (contains("Status", command)) {
         status(args, receivedMessage)
 
+    } else if (contains("Kill", command)) {
+        kill(receivedMessage)
+
     } else {
         easterEggs(command, args, receivedMessage)
     } 
@@ -161,6 +164,16 @@ function status(args, receivedMessage) {
         client.user.setActivity(activity)
     } else {
         receivedMessage.channel.send("You do not have the permission to use this command")
+    }
+}
+
+function kill(receivedMessage) {
+    if(receivedMessage.author.id == "661015948249268272") {
+        receivedMessage.channel.send("Logging off..")
+            .then( msg => client.destroy() )
+        
+    } else {
+        receivedMessage.channel.send("You are not authorized to use this command")
     }
 }
 
