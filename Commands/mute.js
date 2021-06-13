@@ -24,10 +24,12 @@ function mute(args, receivedMessage) {
             let time = ""
             let duration = ""
             for (var arg in args) {
+				console.log ("checking the args")
                 if (arg.startsWith("r|")) {
                     reason += arg.substr(2)
                     while(!arg.startsWith("s|")) {
                         reason += arg
+						console.log("reason: " + reason)
                     }
                 } else {
                     reason = "None Given"
@@ -35,6 +37,7 @@ function mute(args, receivedMessage) {
 
                 if (arg.startsWith("s|")) {
                     strikes += arg.substr(2)
+					console.log("strikes: " + strikes)
                 } else {
                     strikes = "None Given"
                 }
@@ -51,9 +54,10 @@ function mute(args, receivedMessage) {
                         } else if(d == "s") {
                             duration += "seconds  "
                         }
+						console.log("d: " + d)
                     }
                 } else {
-                    reason = "Indefinite"
+                    duration = "Indefinite"
                 }
             }
 
