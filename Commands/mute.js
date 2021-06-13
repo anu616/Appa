@@ -40,7 +40,7 @@ function mute(args, receivedMessage) {
                 } else if (arg.startsWith("d|")) {
 					console.log("is duration")
                     time = arg.substr(2)
-                    time.forEach(d => {
+                    for (const d of time) {
                         if(Number.isInteger(d)) {
                             duration += d + " "
                         } else if(d == "h") {
@@ -52,7 +52,7 @@ function mute(args, receivedMessage) {
                         }
 						remindTime += d 
                         console.log("d: " + d)
-                    })
+                    }
 
                 } else if ( argCheck == "reason") {
                     reason += arg + " "
