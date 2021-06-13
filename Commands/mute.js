@@ -39,7 +39,7 @@ function mute(args, receivedMessage) {
 
                 } else if (arg.startsWith("d|")) {
 					console.log("is duration")
-                    time = arg.splice(2)
+                    time = arg.substr(2)
                     time.forEach(d => {
                         if(Number.isInteger(d)) {
                             duration += d + " "
