@@ -25,7 +25,6 @@ function mute(args, receivedMessage) {
             let time = ""
             let duration = ""
             args.forEach(arg => {
-                console.log ("arg: " + arg)
                 if (arg.startsWith("r|")) {
                     argCheck = "reason"
                     reason = arg.substr(2) + " "
@@ -35,9 +34,7 @@ function mute(args, receivedMessage) {
                     strikes = arg.substr(2)
 
                 } else if (arg.startsWith("d|")) {
-					console.log("is duration")
                     time = arg.substr(2)
-					console.log("time: " + time)
                     for (const d of time) {
                         if(d == "h") {
                             duration += "hours "
@@ -48,7 +45,6 @@ function mute(args, receivedMessage) {
                         } else {
                             duration += d + " "
                         } 
-                        console.log("dur: " + duration)
                     }
 
                 } else if ( argCheck == "reason") {
