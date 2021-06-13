@@ -23,8 +23,8 @@ function mute(args, receivedMessage) {
             let strikes = ""
             let time = ""
             let duration = ""
-            for (var arg in args) {
-				console.log ("arg: " + arg)
+            args.forEach(arg => {
+                console.log ("arg: " + arg)
                 if (arg.startsWith("r|")) {
 					console.log("is reason")
                     reason += arg.substr(2)
@@ -62,7 +62,7 @@ function mute(args, receivedMessage) {
                 } else {
                     duration = "Indefinite"
                 }
-            }
+            });
 
             let muteMsg = userPing + " | " + userTag + " | " + userID + " \n" + 
             "You have been muted. \n\n" +
