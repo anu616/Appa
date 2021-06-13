@@ -60,7 +60,7 @@ function mute(args, receivedMessage) {
                 }
             })
 
-			if(remindTime.length() == 0 {
+			if(remindTime.length() == 0) {
 				duration = "Indefinite"
 			}
 			
