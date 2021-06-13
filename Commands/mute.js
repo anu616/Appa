@@ -22,46 +22,43 @@ function mute(args, receivedMessage) {
             let argCheck = ""
             let reason = "None Given"
             let strikes = "None Given"
-            let time = []
+            let time = ""
             let duration = ""
-			let remindTime = ""
             args.forEach(arg => {
                 console.log ("arg: " + arg)
                 if (arg.startsWith("r|")) {
-					console.log("is reason")
                     argCheck = "reason"
                     reason = arg.substr(2) + " "
 
                 } else if (arg.startsWith("s|")) {
-					console.log("is strikes")
                     argCheck = "strikes"
                     strikes = arg.substr(2)
 
                 } else if (arg.startsWith("d|")) {
 					console.log("is duration")
                     time = arg.substr(2)
+					console.log("time: " + time)
                     for (const d of time) {
-                        if(Number.isInteger(d)) {
-                            duration += d + " "
-                        } else if(d == "h") {
+                        if(d == "h") {
                             duration += "hours "
                         } else if(d == "m") {
                             duration += "minutes "
                         } else if(d == "s") {
                             duration += "seconds  "
-                        }
-						remindTime += d 
-                        console.log("d: " + d)
+                        } else {
+                            duration += d + " "
+                        } 
+                        console.log("dur: " + duration)
                     }
 
                 } else if ( argCheck == "reason") {
-                    reason += arg + " "
-                    console.log("Reason: " + reason)                        
+                    reason += arg + " "                     
                 }
             })
 
-			if(remindTime.length() == 0) {
+			if(time.length == 0) {
 				duration = "Indefinite"
+				console.log("duration is indef")
 			}
 			
             let muteMsg = userPing + " | " + userTag + " | " + userID + " \n" + 
@@ -87,7 +84,7 @@ function mute(args, receivedMessage) {
             "Staff may ping you here with questions if necessary. " + 
             "You need to stay respectful and patient with us and you will have to accept our final decision. \n\n" + 
             
-            "**If any of these guidelines are broken during the mute, further disciplinary actions will be taken.** \n\n"
+            "**If any of these guidelines are broken during the mute, further disciplinary actions will be taken.** \n\n" +
             
             "<@&715503417845350483>" 
             
@@ -101,7 +98,7 @@ function mute(args, receivedMessage) {
 
             receivedMessage.channel.send("Muted " + userTag)
 
-            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, remindTime, userTag)
+            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
             
         }
     } else {

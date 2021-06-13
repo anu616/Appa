@@ -30,7 +30,7 @@ function createChannel(receivedMessage, category, name, kind, userID, muteMsg, t
 
             madeChannel.send(muteMsg)
             
-			if(time.length() > 0) {
+			if(time.length > 0) {
 				unmuteReminder(receivedMessage, madeChannel, time, userTag)
 			}
             
