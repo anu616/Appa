@@ -2,10 +2,12 @@ import { createChannel } from "./channel.js"
 
 function mute(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+        args = args.toLowerCase()
         if(args.length == 0) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
-            "Example: `appa mute <@User> <Reason>` \n" +
+            "Example: `appa mute <@User> r|<Reason> s|<Strike#> d|<Duration>` \n" +
+            "You do not have to give a duration if the user is being muted for an indefinite amount of time. \n" +
             "Note: This command requires you to have a staff role.")
         } else {
             let userID = ""
@@ -15,11 +17,75 @@ function mute(args, receivedMessage) {
             else {
                 userID = args[0].substr(2, 18)
             }
+            let userPing = args[0]
+            let userTag = receivedMessage.guild.members.cache.get(userID).tag
+
             let reason = ""
-            for (let i = 1; i < args.length; i++) {
-                reason += args[i] + " "
+            let strikes = ""
+            let time = ""
+            let duration = ""
+            for (var arg in args) {
+                if (arg.startsWith("r|")) {
+                    reason += arg.substr(2)
+                    while(!arg.startsWith("s|")) {
+                        reason += arg
+                    }
+                } else {
+                    reason = "None Given"
+                }
+
+                if (arg.startsWith("s|")) {
+                    strikes += arg.substr(2)
+                } else {
+                    strikes = "None Given"
+                }
                 
+                if (arg.startsWith("d|")) {
+                    time = arg.substr(2)
+                    for (var d in time) {
+                        if(Number.isInteger(d)) {
+                            duration += d + " "
+                        } else if(d == "h") {
+                            duration += "hours "
+                        } else if(d == "m") {
+                            duration += "minutes "
+                        } else if(d == "s") {
+                            duration += "seconds  "
+                        }
+                    }
+                } else {
+                    reason = "Indefinite"
+                }
             }
+
+            let muteMsg = userPing + " | " + userTag + " | " + userID + " \n" + 
+            "You have been muted. \n\n" +
+            
+            "**Reason:** " + reason + "\n" + 
+            "**Strike:** " + strikes + "\n" + 
+            "**Duration:** " + duration + "\n\n" + 
+            
+            ":warning: **This channel may be used if:** \n" +  
+            ":white_small_square: You want clarity on the situation. \n" + 
+            ":white_small_square: You want a warning appeal. \n" +
+            ":white_small_square: You want to explain yourself. \n\n" +
+            
+            ":no_entry: **Do not:** \n" + 
+            ":white_small_square: Spam this channel. \n" + 
+            ":white_small_square: Ping Staff more than once. \n" +
+            ":white_small_square: Send off-topic messages/media. \n" + 
+            ":white_small_square: Continue breaking server rules. \n\n" + 
+            
+            "We offer you this channel as a chance to tell us your side. " + 
+            "We will keep an open mind for grey areas, but we will not change your consequence for clear rule-breaks. " + 
+            "Staff may ping you here with questions if necessary. " + 
+            "You need to stay respectful and patient with us and you will have to accept our final decision. \n\n" + 
+            
+            "**If any of these guidelines are broken during the mute, further disciplinary actions will be taken.** \n\n"
+            
+            "<@&715503417845350483>" 
+            
+
             let muteCatID = "741158534623920168"
             let name = "🧊・cooler-" + receivedMessage.guild.members.cache.get(userID).user.username
             
@@ -29,7 +95,8 @@ function mute(args, receivedMessage) {
 
             receivedMessage.channel.send("Muted " + receivedMessage.guild.members.cache.get(userID).user.tag)
 
-            createChannel(receivedMessage, muteCatID, name, "mute", userID, reason)
+            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time)
+            
         }
     } else {
         receivedMessage.channel.send("You do not have permission to use this command.")
@@ -54,6 +121,5 @@ function unmute(args, receivedMessage) {
         receivedMessage.channel.send("You do not have permission to use this command.")
     }
 }
-
 
 export { mute, unmute }

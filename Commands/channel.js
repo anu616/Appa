@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-function createChannel(message, category, name, kind, userID, reason) {
+function createChannel(message, category, name, kind, userID, muteMsg, time) {
 
     message.guild.channels.create(name, {
         type: "text",
@@ -8,12 +8,12 @@ function createChannel(message, category, name, kind, userID, reason) {
         permissionOverwrites: [ 
             {
                 id: userID,
-                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY'],
+                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
                 deny: ['MANAGE_CHANNELS', 'MANAGE_MESSAGES'], 
             },
             {
                 id: message.guild.id,
-                deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY'],
+                deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
             },
         ]
     }).then(madeChannel => {
@@ -23,11 +23,14 @@ function createChannel(message, category, name, kind, userID, reason) {
                 SEND_MESSAGES: true,
                 READ_MESSAGE_HISTORY: true,
                 MANAGE_CHANNELS: true,
-                MANAGE_MESSAGES: true
+                MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true
             })
 
-            madeChannel.send("<@" + userID + "> You have been muted for " + reason + " \n" + 
-            "Please stay patient while a <@&715503417845350483> member comes to discuss the situation with you")
+            madeChannel.send(muteMsg)
+            
+            let userTag = receivedMessage.guild.members.cache.get(userID).tag
+            unmuteReminder(madeChannel, time, userTag)
 
         } /* else if(kind == "A") {
             madeChannel.overwritePermissions([
@@ -92,4 +95,55 @@ function closeChannel(receivedMessage) {
         receivedMessage.channel.send("This channel cannot be closed")
     }
 }
+
+function unmuteReminder (channel, time, userTag) {
+    let h = 0
+    let hpos = 0
+    let m = 0
+    let mpos = 0
+    let s = 0
+    let spos = 0
+    let l = 0
+    for (let i = 0; i < time.length; i++) {
+        if(time[i] == "h") {
+            hpos = i
+            h = time.substr(0, hpos)
+        } 
+        if (time[i] == "m") {
+            mpos = i
+            if(hpos == 0){
+                m = time.substr(0, mpos)
+            } else {
+                l = mpos - (hpos+1)
+                m = time.substr(hpos+1, l)
+            }
+        } 
+        if (time[i] == "s") {
+            spos = i
+            if(hpos == 0 && mpos == 0) {
+                s = time.substr(0, spos)
+            } else if (mpos == 0) {
+                l = spos - (hpos+1)
+                s = time.substr(hpos+1, l)
+            } else {
+                l = spos - (mpos+1)
+                s = time.substr(mpos+1, l)
+            } 
+        }
+    }
+    let ms = ((h*3600) + (m*60) + s) * 1000
+
+    setTimeout(() => {
+        let embedMsg = new Discord.MessageEmbed()
+            .setTitle("Mute duration up")
+            .setDescription("It is time to unmute " + userTag)
+            .setColor(channel.guild.roles.cache.get("661015948249268272").hexColor)
+    
+        channel.send("<@&715503417845350483>")
+        channel.send(embedMsg)
+    }, ms);
+
+}
+
+
 export { createChannel, closeChannel as default }
