@@ -2,7 +2,7 @@ import { createChannel } from "./channel.js"
 
 function mute(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
-        if(args.length == 0) {
+        if(args.length < 3) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
             "Example: `appa mute <@User> r|<Reason> s|<Strike#> d|<Duration>` \n" +
