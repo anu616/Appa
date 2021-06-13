@@ -30,7 +30,10 @@ function createChannel(receivedMessage, category, name, kind, userID, muteMsg, t
 
             madeChannel.send(muteMsg)
             
-            unmuteReminder(receivedMessage, madeChannel, time, userTag)
+			if(time.length() > 0) {
+				unmuteReminder(receivedMessage, madeChannel, time, userTag)
+			}
+            
 
         } /* else if(kind == "A") {
             madeChannel.overwritePermissions([

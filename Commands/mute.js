@@ -22,8 +22,9 @@ function mute(args, receivedMessage) {
             let argCheck = ""
             let reason = "None Given"
             let strikes = "None Given"
-            let time = ""
-            let duration = "Indefinite"
+            let time = []
+            let duration = ""
+			let remindTime = ""
             args.forEach(arg => {
                 console.log ("arg: " + arg)
                 if (arg.startsWith("r|")) {
@@ -38,36 +39,31 @@ function mute(args, receivedMessage) {
 
                 } else if (arg.startsWith("d|")) {
 					console.log("is duration")
-                    argCheck = "duration"
-                    duration += arg.substr(2)
+                    time = arg.splice(2)
+                    time.forEach(d => {
+                        if(Number.isInteger(d)) {
+                            duration += d + " "
+                        } else if(d == "h") {
+                            duration += "hours "
+                        } else if(d == "m") {
+                            duration += "minutes "
+                        } else if(d == "s") {
+                            duration += "seconds  "
+                        }
+						remindTime += d 
+                        console.log("d: " + d)
+                    })
 
-                } else {
-                    if ( argCheck == "reason") {
-                        reason += arg + " "
-                        console.log("Reason: " + reason)
-
-                    } else if ( argCheck == "strikes") {
-                        strikes += arg + " "
-                        console.log("strikes: " + strikes)
-
-                    } else if ( argCheck == "duration") {
-                        time = arg.substr(2)
-                        time.forEach(d => {
-                            if(Number.isInteger(d)) {
-                                duration += d + " "
-                            } else if(d == "h") {
-                                duration += "hours "
-                            } else if(d == "m") {
-                                duration += "minutes "
-                            } else if(d == "s") {
-                                duration += "seconds  "
-                            }
-                            console.log("d: " + d)
-                        })
-                    }
+                } else if ( argCheck == "reason") {
+                    reason += arg + " "
+                    console.log("Reason: " + reason)                        
                 }
             })
 
+			if(remindTime.length() == 0 {
+				duration = "Indefinite"
+			}
+			
             let muteMsg = userPing + " | " + userTag + " | " + userID + " \n" + 
             "You have been muted. \n\n" +
             
@@ -105,7 +101,7 @@ function mute(args, receivedMessage) {
 
             receivedMessage.channel.send("Muted " + userTag)
 
-            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
+            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, remindTime, userTag)
             
         }
     } else {
