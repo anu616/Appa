@@ -2,7 +2,6 @@ import { createChannel } from "./channel.js"
 
 function mute(args, receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
-        args = args.toLowerCase()
         if(args.length == 0) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
@@ -18,7 +17,7 @@ function mute(args, receivedMessage) {
                 userID = args[0].substr(2, 18)
             }
             let userPing = args[0]
-            let userTag = receivedMessage.guild.members.cache.get(userID).tag
+            let userTag = receivedMessage.guild.members.cache.get(userID).user.tag
 
             let reason = ""
             let strikes = ""
@@ -93,9 +92,9 @@ function mute(args, receivedMessage) {
             
             receivedMessage.guild.members.cache.get(userID).roles.remove("726653869102334034") //verified
 
-            receivedMessage.channel.send("Muted " + receivedMessage.guild.members.cache.get(userID).user.tag)
+            receivedMessage.channel.send("Muted " + userTag)
 
-            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time)
+            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
             
         }
     } else {

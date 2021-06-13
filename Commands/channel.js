@@ -1,8 +1,9 @@
 import fs from 'fs'
+import { MessageEmbed } from 'discord.js'
 
-function createChannel(message, category, name, kind, userID, muteMsg, time) {
+function createChannel(receivedMessage, category, name, kind, userID, muteMsg, time,userTag) {
 
-    message.guild.channels.create(name, {
+    receivedMessage.guild.channels.create(name, {
         type: "text",
         parent: category,
         permissionOverwrites: [ 
@@ -12,7 +13,7 @@ function createChannel(message, category, name, kind, userID, muteMsg, time) {
                 deny: ['MANAGE_CHANNELS', 'MANAGE_MESSAGES'], 
             },
             {
-                id: message.guild.id,
+                id: receivedMessage.guild.id,
                 deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
             },
         ]
@@ -29,8 +30,7 @@ function createChannel(message, category, name, kind, userID, muteMsg, time) {
 
             madeChannel.send(muteMsg)
             
-            let userTag = receivedMessage.guild.members.cache.get(userID).tag
-            unmuteReminder(madeChannel, time, userTag)
+            unmuteReminder(receivedMessage, madeChannel, time, userTag)
 
         } /* else if(kind == "A") {
             madeChannel.overwritePermissions([
@@ -96,7 +96,7 @@ function closeChannel(receivedMessage) {
     }
 }
 
-function unmuteReminder (channel, time, userTag) {
+function unmuteReminder (receivedMessage, channel, time, userTag) {
     let h = 0
     let hpos = 0
     let m = 0
@@ -134,11 +134,11 @@ function unmuteReminder (channel, time, userTag) {
     let ms = ((h*3600) + (m*60) + s) * 1000
 
     setTimeout(() => {
-        let embedMsg = new Discord.MessageEmbed()
+        let embedMsg = new MessageEmbed()
             .setTitle("Mute duration up")
             .setDescription("It is time to unmute " + userTag)
-            .setColor(channel.guild.roles.cache.get("661015948249268272").hexColor)
-    
+            .setColor(receivedMessage.guild.roles.cache.get("715503417845350483").hexColor)
+
         channel.send("<@&715503417845350483>")
         channel.send(embedMsg)
     }, ms);
