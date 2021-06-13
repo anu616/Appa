@@ -19,50 +19,54 @@ function mute(args, receivedMessage) {
             let userPing = args[0]
             let userTag = receivedMessage.guild.members.cache.get(userID).user.tag
 
-            let reason = ""
-            let strikes = ""
+            let argCheck = ""
+            let reason = "None Given"
+            let strikes = "None Given"
             let time = ""
-            let duration = ""
+            let duration = "Indefinite"
             args.forEach(arg => {
                 console.log ("arg: " + arg)
                 if (arg.startsWith("r|")) {
 					console.log("is reason")
-                    reason += arg.substr(2)
-                    while(!arg.startsWith("s|")) {
-                        reason += arg
-						console.log("reason: " + reason)
-                    }
-                } else {
-                    reason = "None Given"
-                }
+                    argCheck = "reason"
+                    reason = arg.substr(2) + " "
 
-                if (arg.startsWith("s|")) {
+                } else if (arg.startsWith("s|")) {
 					console.log("is strikes")
-                    strikes += arg.substr(2)
-					console.log("strikes: " + strikes)
-                } else {
-                    strikes = "None Given"
-                }
-                
-                if (arg.startsWith("d|")) {
+                    argCheck = "strikes"
+                    strikes = arg.substr(2)
+
+                } else if (arg.startsWith("d|")) {
 					console.log("is duration")
-                    time = arg.substr(2)
-                    for (var d in time) {
-                        if(Number.isInteger(d)) {
-                            duration += d + " "
-                        } else if(d == "h") {
-                            duration += "hours "
-                        } else if(d == "m") {
-                            duration += "minutes "
-                        } else if(d == "s") {
-                            duration += "seconds  "
-                        }
-						console.log("d: " + d)
-                    }
+                    argCheck = "duration"
+                    duration += arg.substr(2)
+
                 } else {
-                    duration = "Indefinite"
+                    if ( argCheck == "reason") {
+                        reason += arg + " "
+                        console.log("Reason: " + reason)
+
+                    } else if ( argCheck == "strikes") {
+                        strikes += arg + " "
+                        console.log("strikes: " + strikes)
+
+                    } else if ( argCheck == "duration") {
+                        time = arg.substr(2)
+                        time.forEach(d => {
+                            if(Number.isInteger(d)) {
+                                duration += d + " "
+                            } else if(d == "h") {
+                                duration += "hours "
+                            } else if(d == "m") {
+                                duration += "minutes "
+                            } else if(d == "s") {
+                                duration += "seconds  "
+                            }
+                            console.log("d: " + d)
+                        })
+                    }
                 }
-            });
+            })
 
             let muteMsg = userPing + " | " + userTag + " | " + userID + " \n" + 
             "You have been muted. \n\n" +
