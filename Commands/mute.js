@@ -1,13 +1,13 @@
 import { createChannel } from "./channel.js"
 
 function mute(args, receivedMessage) {
-    if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+    if((receivedMessage.member.roles.cache.has("715503417845350483")) || (receivedMessage.member.roles.cache.has("845966248671445003"))) {
         if(args.length < 3) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
             "Example: `appa mute <@User> r|<Reason> s|<Strike#> d|<Duration>` \n" +
             "You do not have to give a duration if the user is being muted for an indefinite amount of time. \n" +
-            "Note: This command requires you to have a staff role.")
+            "Note: This command requires you to have a moderator role.")
         } else {
             let userID = ""
             if(args[0].startsWith("<@!")) {
