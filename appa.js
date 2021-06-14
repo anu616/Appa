@@ -169,11 +169,9 @@ function status(args, receivedMessage) {
 
 function kill(receivedMessage) {
     if(receivedMessage.author.id == "661015948249268272") {
-       /* receivedMessage.channel.send("Logging off..")
+        receivedMessage.channel.send("Logging off..")
             .then( msg => client.destroy() )
-         */
-		receivedMessage.channel.send("Logging off..")
-		client.destroy()
+         
     } else {
         receivedMessage.channel.send("You are not authorized to use this command")
     }
