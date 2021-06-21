@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { MessageEmbed } from 'discord.js'
 
 function createChannel(receivedMessage, category, name, kind, userID, msg, time, userTag) {
 
@@ -53,8 +54,6 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
 
             madeChannel.send(msg)
         }
-
-        return madeChannel
     })
 }
 

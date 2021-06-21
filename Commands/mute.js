@@ -1,5 +1,4 @@
 import { createChannel } from "./channel.js"
-import { MessageEmbed } from 'discord.js'
 
 function mute(args, receivedMessage) {
     if((receivedMessage.member.roles.cache.has("715503417845350483")) || (receivedMessage.member.roles.cache.has("845966248671445003"))) {
@@ -95,7 +94,7 @@ function mute(args, receivedMessage) {
 
             receivedMessage.channel.send("Muted " + userTag)
 
-            let madeChan = createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
+            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
             
         }
     } else {
