@@ -14,6 +14,7 @@ import { mute, unmute } from './Commands/mute.js'
 import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import lgbtqColors from './Commands/colors.js'
+import ticket from './Commands/tickets.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -96,6 +97,9 @@ function processCommand(receivedMessage) {
     } else if (contains("Bump", command)) {
         bump(args, receivedMessage)
 
+    } else if (contains("Ticket", command)) {
+        ticket(args, receivedMessage)
+
     } else if (contains("Status", command)) {
         status(args, receivedMessage)
 
@@ -108,7 +112,7 @@ function processCommand(receivedMessage) {
 }
 
 function helpCommand(args, receivedMessage) {
-    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Mute', 'Unmute', 'Bump', 'Baby Bisons']
+    let commandList = ['Help', 'Verify', 'Yip Yip', 'Dice', 'Tickets', 'Bump', 'Baby Bisons']
 
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
@@ -127,7 +131,10 @@ function helpCommand(args, receivedMessage) {
         } else if (contains("Unmute", argCommand)) {
             unmute(args, receivedMessage)
 
-        } else if (contains("Bump", argCommand)) {
+        } else if (contains("Tickets", argCommand)) {
+            ticket(args, receivedMessage)
+
+        }else if (contains("Bump", argCommand)) {
             bump(args, receivedMessage)
 
         } else if (contains("Baby", argCommand)) {

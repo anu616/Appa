@@ -1,4 +1,5 @@
 import { createChannel } from "./channel.js"
+import { MessageEmbed } from 'discord.js'
 
 function mute(args, receivedMessage) {
     if((receivedMessage.member.roles.cache.has("715503417845350483")) || (receivedMessage.member.roles.cache.has("845966248671445003"))) {
@@ -94,7 +95,8 @@ function mute(args, receivedMessage) {
 
             receivedMessage.channel.send("Muted " + userTag)
 
-            createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg, time, userTag)
+            let madeChan = createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg)
+            unmuteReminder(receivedMessage, madeChan, time, userTag)
             
         }
     } else {
@@ -121,4 +123,53 @@ function unmute(args, receivedMessage) {
     }
 }
 
-export { mute, unmute }
+function unmuteReminder (receivedMessage, channel, time, userTag) {
+    let h = 0
+    let hpos = 0
+    let m = 0
+    let mpos = 0
+    let s = 0
+    let spos = 0
+    let l = 0
+    for (let i = 0; i < time.length; i++) {
+        if(time[i] == "h") {
+            hpos = i
+            h = time.substr(0, hpos)
+        } 
+        if (time[i] == "m") {
+            mpos = i
+            if(hpos == 0){
+                m = time.substr(0, mpos)
+            } else {
+                l = mpos - (hpos+1)
+                m = time.substr(hpos+1, l)
+            }
+        } 
+        if (time[i] == "s") {
+            spos = i
+            if(hpos == 0 && mpos == 0) {
+                s = time.substr(0, spos)
+            } else if (mpos == 0) {
+                l = spos - (hpos+1)
+                s = time.substr(hpos+1, l)
+            } else {
+                l = spos - (mpos+1)
+                s = time.substr(mpos+1, l)
+            } 
+        }
+    }
+    let ms = ((h*3600) + (m*60) + s) * 1000
+
+    setTimeout(() => {
+        let embedMsg = new MessageEmbed()
+            .setTitle("Mute duration up")
+            .setDescription("It is time to unmute " + userTag)
+            .setColor(receivedMessage.guild.roles.cache.get("715503417845350483").hexColor)
+
+        channel.send("<@&715503417845350483>")
+        channel.send(embedMsg)
+    }, ms);
+
+}
+
+export { mute, unmute, unmuteReminder }
