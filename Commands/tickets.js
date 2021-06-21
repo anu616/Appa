@@ -3,8 +3,8 @@ import { createChannel } from "./channel.js";
 function ticket(args, receivedMessage) {
     if (args.length == 0 ) {
         receivedMessage.channel.send("Please specify the type of ticket you would like to open. \n" 
-        + "To open a Staff Ticket, rerun the command as `appa ticket staff` \n" 
-        + "To open a Sun Warrior ticket, rerun the command as `appa ticket hsw`")
+        + "To open ticket with our Staff team, rerun the command as `appa ticket staff` \n" 
+        + "To open a ticket with our Dragon team, rerun the command as `appa ticket dragon`")
 
     } else {
         let ticketType = args[0]
@@ -19,19 +19,21 @@ function ticket(args, receivedMessage) {
             + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
             + "<@&715503417845350483>"
             
-            createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, "msg")
+            createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
 
-        } else if (contains("Hsw", ticketType)) {
-            let chanName = "🐉・sw・ticket-" + userName
-            msg += "You have opened a Sun Warrior ticket. \n\n" 
-            + "Please state what concerns you had and be patient while a Sun Warrior member comes to help you. \n\n"
+        } else if (contains("Dragon", ticketType)) {
+            let chanName = "🐉・dragon・ticket-" + userName
+            msg += "You have opened a Dragon ticket. \n\n" 
+            + "Please state what concerns you had and be patient while a Dragon member comes to help you. \n\n"
             + "<@&772880958902632488>"
 
-            createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, "msg")
+            createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
 
         } else {
             receivedMessage.channel.send("That is not a valid ticket.")
         }
+
+		receivedMessage.delete()
     }
 }
 
