@@ -96,7 +96,9 @@ function mute(args, receivedMessage) {
             receivedMessage.channel.send("Muted " + userTag)
 
             let madeChan = createChannel(receivedMessage, muteCatID, name, "mute", userID, muteMsg)
-            unmuteReminder(receivedMessage, madeChan, time, userTag)
+            if(time.length > 0) {
+				unmuteReminder(receivedMessage, madeChan, time, userTag)
+			} 
             
         }
     } else {
