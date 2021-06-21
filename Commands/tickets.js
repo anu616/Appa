@@ -1,4 +1,4 @@
-import { createChannel } from "./channel";
+import { createChannel } from "./channel.js";
 
 function ticket(args, receivedMessage) {
     if (args.length == 0 ) {
