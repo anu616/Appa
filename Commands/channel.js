@@ -30,6 +30,10 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
 
             madeChannel.send(msg)
 
+			if(time.length > 0) {
+				unmuteReminder(receivedMessage, madeChannel, time, userTag)
+			} 
+
         } else if(kind == "Staff") {
             madeChannel.updateOverwrite("715503417845350483", {
                 MANAGE_CHANNELS: true,
@@ -37,10 +41,6 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
             })
 
             madeChannel.send(msg)
-
-            if(time.length > 0) {
-				unmuteReminder(receivedMessage, madeChannel, time, userTag)
-			} 
 
         } else if(kind == "SW") {
             madeChannel.updateOverwrite("772880958902632488", {
