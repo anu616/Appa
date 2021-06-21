@@ -7,12 +7,13 @@ function ticket(args, receivedMessage) {
         + "To open a Sun Warrior ticket, rerun the command as `appa ticket hsw`")
 
     } else {
+        let ticketType = args[0]
         let userID = receivedMessage.author.id 
         let userName = receivedMessage.author.username 
         let userTag = receivedMessage.author.tag 
         let msg = "<@" + userID + "> | " + userTag + " | " + userID + "\n"
 
-        if(contains("Staff", args)) {
+        if(contains("Staff", ticketType)) {
             let chanName = "✦・staff・ticket-" + userName
             msg += "You have opened a staff ticket. \n\n" 
             + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
@@ -20,7 +21,7 @@ function ticket(args, receivedMessage) {
             
             createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, "msg")
 
-        } else if (contains("Hsw", args)) {
+        } else if (contains("Hsw", ticketType)) {
             let chanName = "🐉・sw・ticket-" + userName
             msg += "You have opened a Sun Warrior ticket. \n\n" 
             + "Please state what concerns you had and be patient while a Sun Warrior member comes to help you. \n\n"
