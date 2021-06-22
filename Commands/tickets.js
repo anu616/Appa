@@ -36,16 +36,22 @@ function ticket(args, receivedMessage) {
                 if (receivedMessage.member.roles.cache.has("715503417845350483")) {
                     msg += "A Staff member has opened a ticket with you. \n\n" 
                     + "Please be patient while they come to address the matter. \n\n"
+					+ "<@&715503417845350483>"
+
+					createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
+
                 } else {
                     receivedMessage.channel.send("You are not authorized to create Staff tickets with members")
                 }
             } else {
                 msg += "You have opened a Staff ticket. \n\n" 
                 + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
+				+ "<@&715503417845350483>"
+
+				createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
             }
-            msg += "<@&715503417845350483>"
             
-            createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
+            
 
         } else if (contains("Dragon", ticketType)) {
             let chanName = "🐉・dragon・ticket-" + userName
@@ -54,16 +60,21 @@ function ticket(args, receivedMessage) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {
                     msg += "A Dragon member has opened a ticket with you. \n\n" 
                     + "Please be patient while they come to address the matter. \n\n"
+					+ "<@&772880958902632488>"
+
+					createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
+
                 } else {
                     receivedMessage.channel.send("You are not authorized to create Dragon tickets with members")
                 }
             } else {
                 msg += "You have opened a Dragon ticket. \n\n" 
                 + "Please state what concerns you had and be patient while a Dragon member comes to help you. \n\n"
-            }
-            msg += "<@&772880958902632488>"
+				+ "<@&772880958902632488>"
 
-            createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
+				createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
+
+            }
 
         } else {
             receivedMessage.channel.send("That is not a valid ticket.")
