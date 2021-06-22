@@ -85,14 +85,6 @@ function addAge(userID, age, receivedMessage) {
 
 function verifiedMessage(userID, nation, receivedMessage) {
     let gates = "725687980874006548" 
-    //let bottest = "760099744499367937"
-    let map = "715843510875717634"
-    let roles = "750071527780778094"
-    let basingse = "723016761712050186"
-    let camp = "781369460065828895"
-    let jooDee = "730147351133683853"
-    let cabName = "CabbageBlush"
-    let cabID = "745973485158924370"
 
     let nationChat = ""
     let nationEmoji = ""
@@ -123,14 +115,14 @@ function verifiedMessage(userID, nation, receivedMessage) {
         elementEmoji = "<:ElementAir:746048720302505984>"        
     }
 
-    let welcomePing = "Hey <@&" + jooDee + "> please welcome <@" + userID +"> of the " 
+    let welcomePing = "Hey <@&730147351133683853> <@&856891893253668904> please welcome <@" + userID +"> of the " 
     + nationEmoji + nation + nationEmoji
 
-    let verificationMsg = elementEmoji + " <#" + roles + "> is where you can grab some roles! \n" +
-        elementEmoji + " <#" + map + "> is the channel directory! \n" +
-        elementEmoji + " <#" + basingse + "> is our general chat! \n" +
+    let verificationMsg = elementEmoji + " <#750071527780778094> is where you can grab some roles! \n" +
+        elementEmoji + " <#715843510875717634> is the channel directory! \n" +
+        elementEmoji + " <#723016761712050186> is our general chat! \n" +
         elementEmoji + " <#" + nationChat + "> is your nation chat! \n" +
-        "Let us know if you have any questions, we hope you enjoy the server! <:" + cabName +":" + cabID +  ">"
+        "Let us know if you have any questions, we hope you enjoy the server! <:CabbageBlush:745973485158924370>"
 
     let channelTo = receivedMessage.guild.channels.cache.get(gates)
     
