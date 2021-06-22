@@ -89,7 +89,7 @@ function closeChannel(receivedMessage) {
                 files: [filePath]
             })
 
-        } else if(name.startsWith("🐉・sw・ticket-")) {
+        } else if(name.startsWith("🐉・dragon・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
                 files: [filePath]
