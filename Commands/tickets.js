@@ -8,9 +8,26 @@ function ticket(args, receivedMessage) {
 
     } else {
         let ticketType = args[0]
-        let userID = receivedMessage.author.id 
-        let userName = receivedMessage.author.username 
-        let userTag = receivedMessage.author.tag 
+
+        let userID = ""
+        let userName = ""
+        let userTag = ""
+
+        if (args.length > 1) {
+            if(args[1].startsWith("<@!")) {
+                userID = args[0].substr(3, 18)
+            }
+            else {
+                userID = args[0].substr(2, 18)
+            }
+            userName = receivedMessage.guild.members.cache.get(userID).username
+            userTag = receivedMessage.guild.members.cache.get(userID).tag
+        } else {
+            userID = receivedMessage.author.id 
+            userName = receivedMessage.author.username 
+            userTag = receivedMessage.author.tag 
+        }
+
         let msg = "<@" + userID + "> | " + userTag + " | " + userID + "\n"
 
         if(contains("Staff", ticketType)) {
