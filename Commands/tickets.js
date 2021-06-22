@@ -32,12 +32,16 @@ function ticket(args, receivedMessage) {
         if(contains("Staff", ticketType)) {
             let chanName = "✦・staff・ticket-" + userName
 
-            if ((args.length > 1) && receivedMessage.member.roles.cache.has("715503417845350483")) {
-                msg += "A Staff member has opened a ticket with you. \n\n" 
-                + "Please be patient while they come to address the matter. \n\n"
+            if (args.length > 1) {
+                if (receivedMessage.member.roles.cache.has("715503417845350483")) {
+                    msg += "A Staff member has opened a ticket with you. \n\n" 
+                    + "Please be patient while they come to address the matter. \n\n"
+                } else {
+                    receivedMessage.channel.send("You are not authorized to create Staff tickets with members")
+                }
             } else {
                 msg += "You have opened a Staff ticket. \n\n" 
-            + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
+                + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
             }
             msg += "<@&715503417845350483>"
             
@@ -46,9 +50,13 @@ function ticket(args, receivedMessage) {
         } else if (contains("Dragon", ticketType)) {
             let chanName = "🐉・dragon・ticket-" + userName
 
-            if ((args.length > 1) && receivedMessage.member.roles.cache.has("772880958902632488")) {
-                msg += "A Dragon member has opened a ticket with you. \n\n" 
-                + "Please be patient while they come to address the matter. \n\n"
+            if (args.length > 1) {
+                if (receivedMessage.member.roles.cache.has("772880958902632488")) {
+                    msg += "A Dragon member has opened a ticket with you. \n\n" 
+                    + "Please be patient while they come to address the matter. \n\n"
+                } else {
+                    receivedMessage.channel.send("You are not authorized to create Dragon tickets with members")
+                }
             } else {
                 msg += "You have opened a Dragon ticket. \n\n" 
                 + "Please state what concerns you had and be patient while a Dragon member comes to help you. \n\n"
