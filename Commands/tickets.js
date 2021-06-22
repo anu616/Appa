@@ -8,20 +8,19 @@ function ticket(args, receivedMessage) {
 
     } else {
         let ticketType = args[0]
-
         let userID = ""
         let userName = ""
         let userTag = ""
 
         if ((args.length > 1) && receivedMessage.member.roles.cache.has("715503417845350483")) {
             if(args[1].startsWith("<@!")) {
-                userID = args[0].substr(3, 18)
+                userID = args[1].substr(3, 18)
             }
             else {
-                userID = args[0].substr(2, 18)
+                userID = args[1].substr(2, 18)
             }
-            userName = receivedMessage.guild.members.cache.get(userID).username
-            userTag = receivedMessage.guild.members.cache.get(userID).tag
+             userName = receivedMessage.guild.members.cache.get(userID).user.username
+            userTag = receivedMessage.guild.members.cache.get(userID).user.tag
         } else {
             userID = receivedMessage.author.id 
             userName = receivedMessage.author.username 
