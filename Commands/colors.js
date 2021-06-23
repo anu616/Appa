@@ -1,6 +1,6 @@
 function colors(guild) { 
     let colHex = "0x"
-    for (let i = 0; i < 6; index++) {
+    for (let i = 0; i < 6; i++) {
         colHex += getHexBit() 
     }
 
