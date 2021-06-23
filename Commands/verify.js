@@ -1,6 +1,6 @@
 import { MessageEmbed } from 'discord.js'
 
-function verify(args, receivedMessage, prefix) {
+function verify(args, receivedMessage) {
     let verification = "839264531279904838"
     if(receivedMessage.member.roles.cache.has(verification)) {
         if(args.length < 3) {

@@ -117,7 +117,7 @@ function helpCommand(args, receivedMessage) {
     if (args.length > 0) {
         let argCommand = args[0].toLowerCase()
         if (contains("Verify", argCommand)) {
-            verify(args, receivedMessage, prefix)
+            verify(args, receivedMessage)
 
         } else if (contains("Yip-Yip", argCommand)) {
             receivedMessage.channel.send("Takes you to some of the important channels of the server")
