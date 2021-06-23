@@ -4,7 +4,7 @@ function colors(guild) {
         colHex += getHexBit() 
     }
 
-    guild.roles.cache.get("843748676530864159").setColor(colorHex[col], "making avatar gay again")
+    guild.roles.cache.get("843748676530864159").setColor(colHex, "making avatar gay again")
     console.log("changed color to: " + colHex )
     
 }
