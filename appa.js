@@ -13,7 +13,7 @@ import easterEggs from './Commands/eastereggs.js'
 import { mute, unmute } from './Commands/mute.js'
 import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
-import lgbtqColors from './Commands/colors.js'
+import colors from './Commands/colors.js'
 import ticket from './Commands/tickets.js'
 
 let prefix = ['a!', 'appa ']
@@ -40,7 +40,7 @@ client.on('ready', () => {
     let guild = client.guilds.cache.get('715279938424668230')
     
     setInterval(() => {
-        lgbtqColors(guild)
+        colors(guild)
     }, (5*60*1000))
 
     client.on('message', (receivedMessage) => {
