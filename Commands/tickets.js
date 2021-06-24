@@ -30,7 +30,7 @@ function ticket(args, receivedMessage) {
         let msg = "<@" + userID + "> | " + userTag + " | " + userID + "\n"
 
         if(contains("Staff", ticketType)) {
-            let chanName = "✦・staff・ticket-" + userName
+            let chanName = "🎟️・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("715503417845350483")) {
@@ -54,7 +54,7 @@ function ticket(args, receivedMessage) {
             
 
         } else if (contains("Dragon", ticketType)) {
-            let chanName = "🐉・dragon・ticket-" + userName
+            let chanName = "🐉・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {

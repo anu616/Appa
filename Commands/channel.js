@@ -83,13 +83,13 @@ function closeChannel(receivedMessage) {
                 files: [filePath]
             })
 
-        } else if(name.startsWith("✦・staff・ticket-")) {
+        } else if(name.startsWith("🎟️・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418928476782613")
             logChannel.send({
                 files: [filePath]
             })
 
-        } else if(name.startsWith("🐉・dragon・ticket-")) {
+        } else if(name.startsWith("🐉・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
                 files: [filePath]
