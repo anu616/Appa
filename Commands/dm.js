@@ -16,9 +16,7 @@ function dm(args, receivedMessage) {
 
         user.send(msg)
 
-        let msgID = user.dmChannel.lastMessageID
-
-        dmReceive(user, msgID)
+        //dmReceive(user, msgID)
        
         receivedMessage.delete()
     } else {
@@ -27,8 +25,11 @@ function dm(args, receivedMessage) {
     
 }
 
-function dmReceive(user, msgID) {
-    let msgs =  user.dmChannel.messages.get(after, msgID) 
+function dmReceive(user) {
+    user.dmChannl.fetch({limit: 10})
+    .then(msgs => {
+
+    }) 
 
     let msgDesc = "" 
 
@@ -38,7 +39,7 @@ function dmReceive(user, msgID) {
     });
 
     const embedMsg = new MessageEmbed()
-        .setTitle(user.tag)
+        .setTitle(user.tag + " DMs")
         .setThumbnail(user.defaultAvatarURL)
         .setDescription(msgDesc)
 
