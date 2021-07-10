@@ -15,6 +15,7 @@ import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import colors from './Commands/colors.js'
 import ticket from './Commands/tickets.js'
+import dm from './Commands/dm.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -84,6 +85,9 @@ function processCommand(receivedMessage) {
 
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
+
+    } else if (contains("DM", command)) {
+        dm(args, receivedMessage)
 
     } else if (contains("Mute", command)) {
         mute(args, receivedMessage)
