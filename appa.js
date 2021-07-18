@@ -85,9 +85,6 @@ function processCommand(receivedMessage) {
     } else if (contains("Dice", command)) {
         dice(args, receivedMessage)
 
-    } else if (contains("DM", command)) {
-        dm(args, receivedMessage)
-
     } else if (contains("Mute", command)) {
         mute(args, receivedMessage)
 
