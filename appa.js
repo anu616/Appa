@@ -15,7 +15,6 @@ import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import colors from './Commands/colors.js'
 import ticket from './Commands/tickets.js'
-import dm from './Commands/dm.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
