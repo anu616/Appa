@@ -11,6 +11,8 @@ function vcRole(oldState, newState) {
                 newState.member.roles.add('776070939434680351')
             } else if(newState.channelID == "775666234179059728"){      
                 newState.member.roles.add('776074008528420884')
+            } else if(newState.channelID == "868798917943377990"){      
+                newState.member.roles.add('868798969122263040')
             }
         } else if (newState.channelID == null) {
             console.log(newState.member.user.tag + " left VC")
@@ -18,6 +20,8 @@ function vcRole(oldState, newState) {
                 oldState.member.roles.remove('776070939434680351')
             } else if(oldState.channelID == "775666234179059728") {     
                 oldState.member.roles.remove('776074008528420884')
+            } else if(oldState.channelID == "868798917943377990") {     
+                oldState.member.roles.remove('868798969122263040')
             }
         } else {
             console.log(newState.member.user.tag + " moved VCs")
@@ -25,12 +29,33 @@ function vcRole(oldState, newState) {
              && newState.channelID == "775666234179059728") {
                 newState.member.roles.remove('776070939434680351')
                 newState.member.roles.add("776074008528420884")
+
             } else if(oldState.channelID == "764289734947635241"  && 
             (newState.channelID == "764289712596582400" || newState.channelID == "764289734947635241")) {
-                //tsungi to iroh
                 newState.member.roles.remove("776074008528420884")
                 newState.member.roles.add('776070939434680351')
-            }
+
+            } else if((oldState.channelID == "764289712596582400" || oldState.channelID == "764289734947635241")
+            && newState.channelID == "868798917943377990") {
+               newState.member.roles.remove('776070939434680351')
+               newState.member.roles.add("868798969122263040")
+
+           } else if(oldState.channelID == "868798917943377990"  && 
+           (newState.channelID == "764289712596582400" || newState.channelID == "764289734947635241")) {
+               newState.member.roles.remove("868798969122263040")
+               newState.member.roles.add('776070939434680351')
+
+           } else if(oldState.channelID == "764289734947635241"  && 
+           (newState.channelID == "868798917943377990")) {
+               newState.member.roles.remove("776074008528420884")
+               newState.member.roles.add('868798969122263040')
+
+           } else if((oldState.channelID == "868798917943377990")
+           && newState.channelID == "775666234179059728") {
+              newState.member.roles.remove('868798969122263040')
+              newState.member.roles.add("776074008528420884")
+
+          } 
         }
     }
 }
