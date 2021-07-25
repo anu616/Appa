@@ -30,7 +30,7 @@ function ticket(args, receivedMessage) {
         let msg = "<@" + userID + "> | " + userTag + " | " + userID + "\n"
 
         if(contains("Staff", ticketType)) {
-            let chanName = "🎟️・ticket-" + userName
+            let chanName = "💎・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("715503417845350483")) {
@@ -62,7 +62,7 @@ function ticket(args, receivedMessage) {
                     + "Please be patient while they come to address the matter. \n\n"
 					+ "<@&772880958902632488>"
 
-					createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
+					createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
 
                 } else {
                     receivedMessage.channel.send("You are not authorized to create Dragon tickets with members")
@@ -72,7 +72,7 @@ function ticket(args, receivedMessage) {
                 + "Please state what concerns you had and be patient while a Dragon member comes to help you. \n\n"
 				+ "<@&772880958902632488>"
 
-				createChannel(receivedMessage, "825329801879093248", chanName, "SW", userID, msg)
+				createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
 
             }
 
