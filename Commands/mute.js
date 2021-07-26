@@ -82,7 +82,7 @@ function mute(args, receivedMessage) {
             
             "**If any of these guidelines are broken during the mute, further disciplinary actions will be taken.** \n\n" +
             
-            "<@&715503417845350483>" 
+            "<@&868861213684158485>" 
             
 
             let muteCatID = "741158534623920168"
