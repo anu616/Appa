@@ -31,13 +31,13 @@ function ticket(args, receivedMessage) {
         let msg = "<@" + userID + "> | " + userTag + " | " + userID + "\n"
 
         if(contains("Staff", ticketType)) {
-            let chanName = "💎・ticket-" + userName
+            let chanName = "🔖・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("715503417845350483")) {
                     msg += "A Staff member has opened a ticket with you. \n\n" 
                     + "Please be patient while they come to address the matter. \n\n"
-					+ "<@&715503417845350483>"
+					+ "<@&868861213684158485>"
 
 					createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
 
@@ -47,7 +47,7 @@ function ticket(args, receivedMessage) {
             } else {
                 msg += "You have opened a Staff ticket. \n\n" 
                 + "Please state what concerns you had and be patient while a Staff member comes to help you. \n\n"
-				+ "<@&715503417845350483>"
+				+ "<@&868861213684158485>"
 
 				createChannel(receivedMessage, "825329709558398986", chanName, "Staff", userID, msg)
             }
@@ -55,7 +55,7 @@ function ticket(args, receivedMessage) {
             
 
         } else if (contains("Dragon", ticketType)) {
-            let chanName = "🐉・ticket-" + userName
+            let chanName = "🔥・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {
