@@ -19,7 +19,8 @@ function ticket(args, receivedMessage) {
             else {
                 userID = args[1].substr(2, 18)
             }
-             userName = receivedMessage.guild.members.cache.get(userID).user.username
+            
+            userName = receivedMessage.guild.members.cache.get(userID).user.username
             userTag = receivedMessage.guild.members.cache.get(userID).user.tag
         } else {
             userID = receivedMessage.author.id 
