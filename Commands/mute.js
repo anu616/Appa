@@ -5,7 +5,7 @@ function mute(args, receivedMessage) {
         if(args.length < 3) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +
-            "Example: `appa mute <@User> r|<Reason> s|<Strike#> d|<Duration>` \n" +
+            "Example: `appa mute <@User> r:<Reason> s:<Strike#> d:<Duration>` \n" +
             "You do not have to give a duration if the user is being muted for an indefinite amount of time. \n" +
             "Note: This command requires you to have a moderator role.")
         } else {
@@ -25,15 +25,15 @@ function mute(args, receivedMessage) {
             let time = ""
             let duration = ""
             args.forEach(arg => {
-                if (arg.startsWith("r|")) {
+                if (arg.startsWith("r:")) {
                     argCheck = "reason"
                     reason = arg.substr(2) + " "
 
-                } else if (arg.startsWith("s|")) {
+                } else if (arg.startsWith("s:")) {
                     argCheck = "strikes"
                     strikes = arg.substr(2)
 
-                } else if (arg.startsWith("d|")) {
+                } else if (arg.startsWith("d:")) {
                     time = arg.substr(2)
                     for (const d of time) {
                         if(d == "h") {
