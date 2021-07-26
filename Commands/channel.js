@@ -28,6 +28,15 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
                 MANAGE_MESSAGES: true,
             })
 
+            madeChannel.updateOverwrite("772880958902632488", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
+                MANAGE_CHANNELS: true,
+                MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
+            })
+
             madeChannel.send(msg)
 
 			if(time.length > 0) {
