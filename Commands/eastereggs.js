@@ -7,7 +7,7 @@ function easterEggs(command, args, receivedMessage) {
         hellmo(receivedMessage)
         
     } else if(contains("Baby", command)) {
-        if(contains(args[1], "bisons")) {
+        if(contains(args[0], "bisons")) {
             receivedMessage.channel.send("Appa Babie Bisons! \n" +
             "There are some hidden easter eggs commands that reply with gifs. \n" + 
             "Have fun finding them!")

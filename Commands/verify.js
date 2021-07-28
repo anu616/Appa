@@ -37,11 +37,11 @@ function addRoles(userID, receivedMessage) {
                 "785411730376622080", "724829599560630292", "715811336382316636", //Flameo, Shenanigans, Hawky
                 "724860524260491285", "824094377579380746", "846389834188587019",] //Lei Tai, Avatar, Passport
 
-                
-
     roleIDs.forEach(id => {
         receivedMessage.guild.members.cache.get(userID).roles.add(id)
     })
+
+	receivedMessage.guild.members.cache.get(userID).roles.remove(869928465657376819)				//open chakras
 }
 
 function addNation(userID, nation, receivedMessage) {
