@@ -19,7 +19,7 @@ function embedMsg(msg, receivedMessage) {
         .setTitle("Where would you like to fly to? ")
         .setColor(0xD9B595)
         .setDescription(msg)
-        .setThumbnail('https://cdn.discordapp.com/attachments/760099744499367937/844371643815034880/image0.gif')
+        .setThumbnail('https://media1.tenor.com/images/874e58551f1d342b770b093360ccfa67/tenor.gif')
 
     receivedMessage.channel.send(embed)
 }

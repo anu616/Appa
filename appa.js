@@ -44,13 +44,18 @@ client.on('ready', () => {
     }, (5*60*1000))
 
     client.on('message', (receivedMessage) => {
+
         if (receivedMessage.author == client.user) { // Prevent bot from responding to its own messages
             return
         }
             
         if(receivedMessage.channel.id == "796243350025404436") {        //in crystal
             logMsg(receivedMessage, "796253582361886750")               //to cata logs
-        }
+        } 
+
+		if(contains(receivedMessage.content, "honor") || contains(receivedMessage.content, "honour")) {
+			receivedMessage.react('726997619225919568')
+		}
 
         if (checkPrefix(receivedMessage)) {
             processCommand(receivedMessage)
