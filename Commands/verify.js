@@ -41,7 +41,7 @@ function addRoles(userID, receivedMessage) {
         receivedMessage.guild.members.cache.get(userID).roles.add(id)
     })
 
-	receivedMessage.guild.members.cache.get(userID).roles.remove(869928465657376819)				//open chakras
+	receivedMessage.guild.members.cache.get(userID).roles.remove('869928465657376819')				//open chakras
 }
 
 function addNation(userID, nation, receivedMessage) {
@@ -49,6 +49,7 @@ function addNation(userID, nation, receivedMessage) {
     let waterIDs = ["725052064362922096", "724922212766711818"]     //Water, Water Duel
     let earthIDs = ["725052066308816937", "724922214625050644"]     //Warth, Earth Rumble
     let airIDs = ["725052062546788373", "724922216772534293"]       //Air, Airball
+
 
     if(contains("Fire Nation", nation)) {
         fireIDs.forEach( id => {
@@ -65,7 +66,11 @@ function addNation(userID, nation, receivedMessage) {
     } else if(contains("Air Nomads", nation)) {
         airIDs.forEach( id => {
             receivedMessage.guild.members.cache.get(userID).roles.add(id)
-        })
+        }) 
+    } else if(contains("Alt", nation)) {
+        airIDs.forEach( id => {
+            receivedMessage.guild.members.cache.get(userID).roles.add("770732488829173801")
+        }) 
     }
 }
 
@@ -125,6 +130,16 @@ function verifiedMessage(userID, nation, receivedMessage) {
         "Let us know if you have any questions, we hope you enjoy the server! <:CabbageBlush:745973485158924370>"
 
     let channelTo = receivedMessage.guild.channels.cache.get(gates)
+
+	if(contains("Alt", nation)) {
+        nation = ""
+        nationChat = ""
+        nationEmoji = ""
+        elementEmoji = ""
+		welcomePing = ""
+		verificationMsg = " "
+
+    }
     
     channelTo.send(welcomePing)
     embedMsg(nation, receivedMessage, verificationMsg, channelTo)
@@ -152,12 +167,18 @@ function embedMsg(nation, receivedMessage, verifiedMessage, channelTo) {
        thumb = "https://media.tenor.com/images/e415cd6618b808c89193f7a3f833ce49/tenor.gif"
     }
 
-    const embed = new MessageEmbed()
+    let embed = new MessageEmbed()
         .setTitle("Here are some channels you should check out!")
         .setColor(col)
         .setDescription(verifiedMessage)
         .setThumbnail(thumb)
-    
+
+	if(contains("Alt", nation)) {
+        col = ""
+		thumb = ""
+		embed = " " 
+    }
+
     channelTo.send(embed)
 }
 
