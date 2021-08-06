@@ -16,23 +16,34 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
                 id: receivedMessage.guild.id,
                 deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
             },
-            {
+			{
                 id: "715503417845350483",           
-                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
+                allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
             }
         ]
     }).then(madeChannel => {
         if(kind == "mute") {
-            madeChannel.updateOverwrite("715503417845350483", {
+			madeChannel.updateOverwrite("869928441057771640", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
                 MANAGE_CHANNELS: true,
                 MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
             })
 
            madeChannel.updateOverwrite("860026081892630539", {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true,
                 READ_MESSAGE_HISTORY: true,
-                MANAGE_CHANNELS: true,
+                MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
+            })
+
+			madeChannel.updateOverwrite("724823768165253171", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
                 MANAGE_MESSAGES: true,
                 MENTION_EVERYONE: true,
             })
@@ -44,17 +55,27 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
 			} 
 
         } else if(kind == "Staff") {
-            madeChannel.updateOverwrite("715503417845350483", {
+			madeChannel.updateOverwrite("869928441057771640", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
                 MANAGE_CHANNELS: true,
                 MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
             })
-
             
             madeChannel.updateOverwrite("860026081892630539", {
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true,
                 READ_MESSAGE_HISTORY: true,
-                MANAGE_CHANNELS: true,
+                MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
+            })
+
+			madeChannel.updateOverwrite("724823768165253171", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
                 MANAGE_MESSAGES: true,
                 MENTION_EVERYONE: true,
             })
@@ -108,7 +129,7 @@ function closeChannel(receivedMessage) {
                 files: [filePath]
             })
 
-        } else if(name.startsWith("🐉・ticket-")) {
+        } else if(name.startsWith("🔥・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
                 files: [filePath]
