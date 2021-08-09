@@ -180,13 +180,29 @@ function status(args, receivedMessage) {
 }
 
 function kill(receivedMessage) {
-    if(receivedMessage.author.id == "661015948249268272") {
-        receivedMessage.channel.send("Logging off..")
-            .then( msg => client.destroy() )
-         
-    } else {
-        receivedMessage.channel.send("You are not authorized to use this command")
-    }
+	const filter = u => (u.author.id == receivedMessage.author.id) 
+	receivedMessage.channel.send("Do you really want to kill me? <:CabbageCry:745973484638961725>").then(() => {
+		receivedMessage.channel.awaitMessages(filter, {
+		max: 1,
+		time: 3000,
+		errors: ['time']
+		})
+		.then(message => {
+			let msg = message.first().content
+			if(contains(msg, "Yes")) {
+				if(receivedMessage.author.id == "661015948249268272") {
+					 receivedMessage.channel.send("Logging off..")
+					 .then(() => client.destroy())
+				} else {
+					receivedMessage.channel.send("You are not authorized to use this command")
+				}
+			} else if (contains(msg, "No")) {
+				receivedMessage.channel.send("Okie <:CabbageBlush:745973485158924370>")
+			} else {
+				receivedMessage.channel.send("Invalid, command terminated")
+			}
+		})
+	})
 }
 
 alive()
