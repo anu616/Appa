@@ -55,7 +55,7 @@ function ticket(args, receivedMessage) {
             
 
         } else if (contains("Dragon", ticketType)) {
-            let chanName = "🔥・ticket-" + userName
+            let chanName = "🔮・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {

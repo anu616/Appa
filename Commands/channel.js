@@ -123,23 +123,27 @@ function closeChannel(receivedMessage) {
                 files: [filePath]
             })
 
-        } else if(name.startsWith("🎟️・ticket-")) {
+			receivedMessage.channel.delete()
+
+        } else if(name.startsWith("🔖・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418928476782613")
             logChannel.send({
                 files: [filePath]
             })
 
-        } else if(name.startsWith("🔥・ticket-")) {
+			receivedMessage.channel.delete()
+
+        } else if(name.startsWith("🔮・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
                 files: [filePath]
             })
 
+			receivedMessage.channel.delete()
+
         } else {
             receivedMessage.channel.send("This channel cannot be closed")
         }
-
-        receivedMessage.channel.delete()
 
     } else {
         receivedMessage.channel.send("You do not have permission to use this command")

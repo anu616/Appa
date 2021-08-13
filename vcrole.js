@@ -7,27 +7,27 @@ function vcRole(oldState, newState) {
     } else {
         if(oldState.channelID == null) {
             console.log(newState.member.user.tag + " joined VC")
-            if(newState.channelID == "764289712596582400"){             //iroh
+            if(newState.channelID == "764289712596582400"){             //talk
                 newState.member.roles.add('776070939434680351')
-            } else if(newState.channelID == "764289734947635241"){      //tsungi
-                newState.member.roles.add('781161360419061760')
+            } else if(newState.channelID == "764289734947635241"){      //music
+                newState.member.roles.add('875092642537562112')
             }
         } else if (newState.channelID == null) {
             console.log(newState.member.user.tag + " left VC")
-            if(oldState.channelID == "764289712596582400") {            //iroh
+            if(oldState.channelID == "764289712596582400") {            //talk
                 oldState.member.roles.remove('776070939434680351')
-            } else if(oldState.channelID == "764289734947635241") {     //tsungi
-                oldState.member.roles.remove('781161360419061760')
+            } else if(oldState.channelID == "764289734947635241") {     //music
+                oldState.member.roles.remove('875092642537562112')
             }
         } else {
             console.log(newState.member.user.tag + " moved VCs")
             if(oldState.channelID == "764289712596582400" && newState.channelID == "764289734947635241") {
-                //iroh to tsungi
+                //talk to music
                 newState.member.roles.remove('776070939434680351')
-                newState.member.roles.add("781161360419061760")
+                newState.member.roles.add("875092642537562112")
             } else if(oldState.channelID == "764289734947635241"  && newState.channelID == "764289712596582400") {
-                //tsungi to iroh
-                newState.member.roles.remove("781161360419061760")
+                //music to talk
+                newState.member.roles.remove("875092642537562112")
                 newState.member.roles.add('776070939434680351')
             }
         }
