@@ -35,7 +35,7 @@ function verify(args, receivedMessage) {
 function addRoles(userID, receivedMessage) {
     let roleIDs = ["715439512146149388", "726653869102334034", //Non bender, Verified
                 "785411730376622080", "724829599560630292", "715811336382316636", //Flameo, Shenanigans, Hawky
-                "724860524260491285", "824094377579380746", "846389834188587019",] //Lei Tai, Avatar, Passport
+                "724860524260491285", "824094377579380746", "846389834188587019",] //Lei Tai, relics, Passport
 
     roleIDs.forEach(id => {
         receivedMessage.guild.members.cache.get(userID).roles.add(id)
