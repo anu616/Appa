@@ -108,15 +108,20 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
 function closeChannel(receivedMessage) {
     if(receivedMessage.member.roles.cache.has("715503417845350483")) {
         let name = receivedMessage.channel.name
-        const collector = receivedMessage.channel.createMessageCollector()
-        let messages = collector.channel.messages.cache
+        /* const collector = receivedMessage.channel.createMessageCollector()
+        let messages = collector.channel.messages.cache */
             
+        let channel = receivedMessage.channel
         let msgData = ""
-            
-        messages.forEach(msg => {
-            msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
-                
-        })
+
+        channel.messages.fetch()
+        .then(
+            messages.forEach(msg => {
+                msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
+                    
+            })
+        )
+        
             
         let filePath = "./Logs/" + name + ".txt"
         fs.writeFile(filePath, msgData, 'utf8', (err) => {
