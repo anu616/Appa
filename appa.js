@@ -97,10 +97,10 @@ function processCommand(receivedMessage) {
     } else if (contains("Unmute", command)) {
         unmute(args, receivedMessage)
 
-    } else if (contains("Moote", argCommand)) {
+    } else if (contains("Moote", command)) {
         moote(args, receivedMessage)
 
-    } else if (contains("Unmoote", argCommand)) {
+    } else if (contains("Unmoote", command)) {
         unmoote(args, receivedMessage)
 
     } else if (contains("close", command)) {

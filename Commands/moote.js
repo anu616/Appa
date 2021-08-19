@@ -1,25 +1,25 @@
 function moote (args, receivedMessage) {
 
-	console.log(args.length)
-	
+	receivedMessage.channel.send(args.length)
+
 	if(args.length < 1) {
 		receivedMessage.channel.send("Please rerun the command as `Appa moote <position>` based on your position as one of the following: \n"
 		 + " Admin, Captain, Mod, Trainee")
-	}
-	userID = receivedMessage.author.id
-	let roles = []
+	} else {
+		let userID = receivedMessage.author.id
+		let roles = []
 
-	if(receivedMessage.member.roles.cache.has('868861213684158485')) {
-		if(contains("admin", args) && (receivedMessage.member.roles.cache.has('715503417845350483'))) {
-			roles = ['715503417845350483', '839264531279904838', '873197679964983376', '868861213684158485']
+		if(receivedMessage.member.roles.cache.has('868861213684158485')) {
+			if(contains("admin", args) && (receivedMessage.member.roles.cache.has('715503417845350483'))) {
+				roles = ['715503417845350483', '839264531279904838', '873197679964983376', '868861213684158485']
 
-		} else if(contains("captain", args) && (receivedMessage.member.roles.cache.has('869928441057771640'))) {
+			} else if(contains("captain", args) && (receivedMessage.member.roles.cache.has('869928441057771640'))) 	{
 			roles = ['869928441057771640', '839264531279904838', '873197679964983376', '868861213684158485']
 
-		} else if(contains("mod", args) && (receivedMessage.member.roles.cache.has('860026081892630539'))) {
+			} else if(contains("mod", args) && (receivedMessage.member.roles.cache.has('860026081892630539'))) {
 			roles = ['860026081892630539', '873197679964983376', '868861213684158485']
 
-		} else if(contains("trainee", args) && 	(receivedMessage.member.roles.cache.has('724823768165253171'))) {
+			} else if(contains("trainee", args) && 	(receivedMessage.member.roles.cache.has('724823768165253171'))) {
 			roles = ['724823768165253171', '873197679964983376', '868861213684158485']
 
 		} else {
@@ -35,6 +35,8 @@ function moote (args, receivedMessage) {
     	})
 	} else {
 		receivedMessage.channel.send("You are not authorized to use this command")
+	}
+
 	}
 } 
 

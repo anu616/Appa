@@ -1,5 +1,3 @@
-import { NewsChannel } from "discord.js"
-
 function vcRole(oldState, newState) {
     
     if(oldState.member.user.bot) {
