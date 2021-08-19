@@ -1,5 +1,9 @@
 function moote (args, receivedMessage) {
-	userId = receivedMessage.author.id
+	if(args.length < 1) {
+		receivedMessage.channel.send("Please rerun the command as `Appa moote <position>` based on your position as one of the following: \n"
+		 + " Admin, Captain, Mod, Trainee")
+	}
+	userID = receivedMessage.author.id
 	let roles = []
 
 	if(receivedMessage.member.roles.cache.has('868861213684158485')) {
@@ -23,6 +27,8 @@ function moote (args, receivedMessage) {
         	receivedMessage.guild.members.cache.get(userID).roles.remove(id)
 
 			receivedMessage.guild.members.cache.get(userID).roles.add('877715983081553961')
+
+			receivedMessage.channel.send("Mooted discord by yeeting your ping roles. Good luck with whatever youre doing! <:CabbageBlush3:869753338714005514>")
     	})
 	} else {
 		receivedMessage.channel.send("You are not authorized to use this command")
@@ -30,7 +36,12 @@ function moote (args, receivedMessage) {
 } 
 
 function unmoote (args, receivedMessage) {
-	userId = receivedMessage.author.id
+	if(args.length < 1) {
+		receivedMessage.channel.send("Please rerun the command as `Appa moote <position>` based on your position as one of the following: \n"
+		 + " Admin, Captain, Mod, Trainee")
+	}
+
+	userID = receivedMessage.author.id
 	let roles = []
 
 	if(receivedMessage.member.roles.cache.has('868861213684158485')) {
@@ -54,6 +65,8 @@ function unmoote (args, receivedMessage) {
         	receivedMessage.guild.members.cache.get(userID).roles.add(id)
 
 			receivedMessage.guild.members.cache.get(userID).roles.remove('877715983081553961')
+
+			receivedMessage.channel.send("Welcome back to the world of pings, your discord has been unmooted <:bihelllord:869749081558351933>")
     	})
 	} else {
 		receivedMessage.channel.send("You are not authorized to use this command")
