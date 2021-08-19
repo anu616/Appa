@@ -11,6 +11,7 @@ import vcRole from './Commands/vcrole.js'
 import logMsg from './Commands/ranShaw.js'
 import easterEggs from './Commands/eastereggs.js'
 import { mute, unmute } from './Commands/mute.js'
+import { moote, unmoote } from './Commands/moote.js'
 import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import colors from './Commands/colors.js'
@@ -139,8 +140,14 @@ function helpCommand(args, receivedMessage) {
         } else if (contains("Tickets", argCommand)) {
             ticket(args, receivedMessage)
 
-        }else if (contains("Bump", argCommand)) {
+        } else if (contains("Bump", argCommand)) {
             bump(args, receivedMessage)
+
+        } else if (contains("Moote", argCommand)) {
+            moote(args, receivedMessage)
+
+        } else if (contains("Unmoote", argCommand)) {
+            unmoote(args, receivedMessage)
 
         } else if (contains("Baby", argCommand)) {
             if(contains(args[1], "bisons")) {
