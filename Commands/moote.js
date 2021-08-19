@@ -1,4 +1,7 @@
 function moote (args, receivedMessage) {
+
+	console.log(args.length)
+	
 	if(args.length < 1) {
 		receivedMessage.channel.send("Please rerun the command as `Appa moote <position>` based on your position as one of the following: \n"
 		 + " Admin, Captain, Mod, Trainee")
