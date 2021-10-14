@@ -1,8 +1,7 @@
 import { MessageEmbed } from 'discord.js'
 
 function verify(args, receivedMessage) {
-    let verification = "839264531279904838"
-    if(receivedMessage.member.roles.cache.has(verification)) {
+    if(receivedMessage.member.roles.cache.has("868861213684158485")) {
         if(args.length < 3) {
             receivedMessage.channel.send("Please run the command in the following format: \n"
             + "Enter the user, their age and nation in the following format: \n"
@@ -120,7 +119,7 @@ function verifiedMessage(userID, nation, receivedMessage) {
         elementEmoji = "<:ElementAir:746048720302505984>"        
     }
 
-    let welcomePing = "Hey <@&730147351133683853> <@&856891893253668904> please welcome <@" + userID +"> of the " 
+    let welcomePing = "Hey <@&730147351133683853> please welcome <@" + userID +"> of the " 
     + nationEmoji + nation + nationEmoji
 
     let verificationMsg = elementEmoji + " <#750071527780778094> is where you can grab some roles! \n" +

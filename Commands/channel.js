@@ -17,6 +17,10 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
                 deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
             },
 			{
+                id: "887212410220474398",
+                deny: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE'],
+            },
+			{
                 id: "715503417845350483",           
                 allow: ['VIEW_CHANNEL', 'SEND_MESSAGES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'MANAGE_CHANNELS', 'MANAGE_MESSAGES'],
             }
@@ -106,28 +110,33 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
 }
 
 function closeChannel(receivedMessage) {
-    if(receivedMessage.member.roles.cache.has("715503417845350483")) {
+    if(receivedMessage.member.roles.cache.has("873197679964983376")) {
         let name = receivedMessage.channel.name
-        /* const collector = receivedMessage.channel.createMessageCollector()
-        let messages = collector.channel.messages.cache */
+        const collector = receivedMessage.channel.createMessageCollector()
+        let messages = collector.channel.messages.cache 
             
         let channel = receivedMessage.channel
         let msgData = ""
 
-        channel.messages.fetch()
-        .then(
-            messages.forEach(msg => {
-                msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
+		messages.forEach(msg => {
+				msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
                     
             })
-        )
+
+        /* channel.messages.fetch()
+        .then(messages => {
+			messages.forEach(msg => {
+				msgData += msg.author.tag + " \t\t" + msg.createdAt + " \n" + msg.content + "\n \n"
+                    
+            })
+		}) */
         
             
         let filePath = "./Logs/" + name + ".txt"
-        fs.writeFile(filePath, msgData, 'utf8', (err) => {
+        fs.writeFile(filePath, "\ufeff " + msgData, (err) => {
             if (err) {
                 console.log(err)
-            }
+            } 
         })
 
         if(name.startsWith("🧊・cooler-")) {
@@ -149,7 +158,8 @@ function closeChannel(receivedMessage) {
         } else if(name.startsWith("🔮・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
-                files: [filePath]
+                //files: [filePath]
+				filePath
             })
 
 			receivedMessage.channel.delete()

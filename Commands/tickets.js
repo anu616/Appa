@@ -4,7 +4,7 @@ function ticket(args, receivedMessage) {
     if (args.length == 0 ) {
         receivedMessage.channel.send("Please specify the type of ticket you would like to open. \n" 
         + "To open ticket with our Staff team, rerun the command as `appa ticket staff` \n" 
-        + "To open a ticket with our Dragon team, rerun the command as `appa ticket dragon`")
+        + "To open a ticket with our Guardian team, rerun the command as `appa ticket guardian`")
 
     } else {
         let ticketType = args[0]
@@ -54,23 +54,23 @@ function ticket(args, receivedMessage) {
             
             
 
-        } else if (contains("Dragon", ticketType)) {
+        } else if (contains("Guardian", ticketType)) {
             let chanName = "🔮・ticket-" + userName
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {
-                    msg += "A Dragon member has opened a ticket with you. \n\n" 
+                    msg += "A Guardian member has opened a ticket with you. \n\n" 
                     + "Please be patient while they come to address the matter. \n\n"
 					+ "<@&772880958902632488>"
 
 					createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
 
                 } else {
-                    receivedMessage.channel.send("You are not authorized to create Dragon tickets with members")
+                    receivedMessage.channel.send("You are not authorized to create Guardian tickets with members")
                 }
             } else {
-                msg += "You have opened a Dragon ticket. \n\n" 
-                + "Please state what concerns you had and be patient while a Dragon member comes to help you. \n\n"
+                msg += "You have opened a Guardian ticket. \n\n" 
+                + "Please state what concerns you had and be patient while a Guardian member comes to help you. \n\n"
 				+ "<@&772880958902632488>"
 
 				createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
