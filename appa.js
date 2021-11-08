@@ -16,6 +16,7 @@ import closeChannel from './Commands/channel.js'
 import bump from './Commands/bump.js'
 import colors from './Commands/colors.js'
 import ticket from './Commands/tickets.js'
+import {add, remove} from './Commands/capitol.js'
 
 let prefix = ['a!', 'appa ']
 let pLen = prefix.length
@@ -112,6 +113,12 @@ function processCommand(receivedMessage) {
     } else if (contains("Ticket", command)) {
         ticket(args, receivedMessage)
 
+    } else if (contains("add", command)) {
+        ticket(args, receivedMessage)
+
+    } else if (contains("remove", command)) {
+        ticket(args, receivedMessage)
+
     } else if (contains("Status", command)) {
         status(args, receivedMessage)
 
@@ -151,6 +158,12 @@ function helpCommand(args, receivedMessage) {
 
         } else if (contains("Moote", argCommand)) {
             moote(args, receivedMessage)
+
+        } else if (contains("add", argCommand)) {
+            add(args, receivedMessage)
+
+        } else if (contains("remove", argCommand)) {
+            remove(args, receivedMessage)
 
         } else if (contains("Unmoote", argCommand)) {
             unmoote(args, receivedMessage)
