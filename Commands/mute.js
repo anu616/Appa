@@ -1,7 +1,7 @@
 import { createChannel } from "./channel.js"
 
 function mute(args, receivedMessage) {
-    if((receivedMessage.member.roles.cache.has("715503417845350483")) || (receivedMessage.member.roles.cache.has("845966248671445003"))) {
+    if(receivedMessage.member.roles.cache.has("868861213684158485")) {
         if(args.length < 3) {
             receivedMessage.channel.send("Please re run the command specifying the user you want to mute " +
             "and the reason for the mute. \n" +

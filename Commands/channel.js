@@ -59,6 +59,15 @@ function createChannel(receivedMessage, category, name, kind, userID, msg, time,
                 MANAGE_MESSAGES: false,
                 MENTION_EVERYONE: false,
             })
+			
+			madeChannel.updateOverwrite("772880958902632488", {
+                VIEW_CHANNEL: true,
+                SEND_MESSAGES: true,
+                READ_MESSAGE_HISTORY: true,
+                MANAGE_CHANNELS: true,
+                MANAGE_MESSAGES: true,
+                MENTION_EVERYONE: true,
+            })
 
             madeChannel.send(msg)
 
@@ -158,8 +167,8 @@ function closeChannel(receivedMessage) {
         } else if(name.startsWith("🔮・ticket-")) {
             let logChannel = receivedMessage.guild.channels.cache.get("845418822395494490")
             logChannel.send({
-                //files: [filePath]
-				filePath
+                files: [filePath]
+				//filePath
             })
 
 			receivedMessage.channel.delete()
