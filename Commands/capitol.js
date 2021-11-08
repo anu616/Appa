@@ -24,7 +24,7 @@ function add(args, recievedMessage) {
 	}
 }
 
-function remove(recievedMessage, args) {
+function remove(args, recievedMessage) {
 	if(receivedMessage.member.roles.cache.has("868861213684158485")) {
         if(args.length < 2) {
 			recievedMessage.channel.send("Please run the command in the following format: \n"
