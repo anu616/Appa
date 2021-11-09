@@ -114,10 +114,10 @@ function processCommand(receivedMessage) {
         ticket(args, receivedMessage)
 
     } else if (contains("add", command)) {
-        ticket(args, receivedMessage)
+        add(args, receivedMessage)
 
     } else if (contains("remove", command)) {
-        ticket(args, receivedMessage)
+        remove(args, receivedMessage)
 
     } else if (contains("Status", command)) {
         status(args, receivedMessage)

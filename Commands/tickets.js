@@ -59,18 +59,18 @@ function ticket(args, receivedMessage) {
 
             if (args.length > 1) {
                 if (receivedMessage.member.roles.cache.has("772880958902632488")) {
-                    msg += "A Guardian member has opened a ticket with you. \n\n" 
+                    msg += "A Dragon Relations member has opened a ticket with you. \n\n" 
                     + "Please be patient while they come to address the matter. \n\n"
 					+ "<@&772880958902632488>"
 
 					createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
 
                 } else {
-                    receivedMessage.channel.send("You are not authorized to create Guardian tickets with members")
+                    receivedMessage.channel.send("You are not authorized to create Dragon Relations tickets with members")
                 }
             } else {
-                msg += "You have opened a Guardian ticket. \n\n" 
-                + "Please state what concerns you had and be patient while a Guardian member comes to help you. \n\n"
+                msg += "You have opened a Dragon Relations ticket. \n\n" 
+                + "Please state what concerns you had and be patient while a Dragon Relations member comes to help you. \n\n"
 				+ "<@&772880958902632488>"
 
 				createChannel(receivedMessage, "825329709558398986", chanName, "SW", userID, msg)
